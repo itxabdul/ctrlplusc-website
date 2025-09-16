@@ -1,9 +1,21 @@
 {
+  "version": 2,
+  "public": true,
   "functions": {
     "api/waitlist.js": {
       "runtime": "nodejs18.x"
     }
   },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
