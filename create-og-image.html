@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate OG Image</title>
+</head>
+<body>
+    <canvas id="canvas" width="1200" height="630" style="border: 1px solid #ccc;"></canvas>
+    <br><br>
+    <button onclick="downloadImage()">Download PNG</button>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Background
+        ctx.fillStyle = '#f8fafc';
+        ctx.fillRect(0, 0, 1200, 630);
+
+        // Grid pattern
+        ctx.strokeStyle = '#e5e7eb';
+        ctx.lineWidth = 1;
+        ctx.globalAlpha = 0.3;
+        for (let x = 0; x <= 1200; x += 40) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, 630);
+            ctx.stroke();
+        }
+        for (let y = 0; y <= 630; y += 40) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(1200, y);
+            ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+
+        // Logo background
+        ctx.fillStyle = '#2563eb';
+        ctx.beginPath();
+        ctx.roundRect(100, 120, 80, 80, 20);
+        ctx.fill();
+
+        // Logo text
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 36px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('C+', 140, 175);
+
+        // Title
+        ctx.fillStyle = '#111827';
+        ctx.font = 'bold 52px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('Ctrl+C', 200, 155);
+
+        ctx.fillStyle = '#6b7280';
+        ctx.font = '400 24px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('Smart Clipboard Manager', 200, 190);
+
+        // Main headline
+        ctx.fillStyle = '#111827';
+        ctx.font = 'bold 48px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('Never lose what you copy again', 100, 300);
+
+        // Subtitle
+        ctx.fillStyle = '#6b7280';
+        ctx.font = '400 28px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('OCR • Lightning Search • Privacy-First', 100, 360);
+
+        // CTA Button
+        ctx.fillStyle = '#2563eb';
+        ctx.beginPath();
+        ctx.roundRect(100, 410, 280, 60, 30);
+        ctx.fill();
+
+        ctx.fillStyle = 'white';
+        ctx.font = '600 22px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Join Early Access', 240, 450);
+
+        // Features
+        ctx.textAlign = 'left';
+
+        // OCR Feature
+        ctx.fillStyle = '#f0f9ff';
+        ctx.strokeStyle = '#2563eb';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(730, 270, 30, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#111827';
+        ctx.font = '600 18px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('OCR Text Extract', 780, 265);
+        ctx.fillStyle = '#6b7280';
+        ctx.font = '400 14px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('Copy text from images', 780, 285);
+
+        // Lightning Feature
+        ctx.fillStyle = '#fefce8';
+        ctx.strokeStyle = '#eab308';
+        ctx.beginPath();
+        ctx.arc(730, 350, 30, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#111827';
+        ctx.font = '600 18px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('Lightning Search', 780, 345);
+        ctx.fillStyle = '#6b7280';
+        ctx.font = '400 14px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('Find in milliseconds', 780, 365);
+
+        // Privacy Feature
+        ctx.fillStyle = '#f0fdf4';
+        ctx.strokeStyle = '#059669';
+        ctx.beginPath();
+        ctx.arc(730, 430, 30, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#111827';
+        ctx.font = '600 18px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('Privacy First', 780, 425);
+        ctx.fillStyle = '#6b7280';
+        ctx.font = '400 14px Inter, -apple-system, BlinkMacSystemFont, sans-serif';
+        ctx.fillText('All data stays local', 780, 445);
+
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ctrl+C — Transform Your Digital Workflow Forever</title>
+  <meta name="description" content="The intelligent clipboard that remembers everything, understands context, and anticipates your needs. Experience the future of digital productivity.">
+  <meta name="keywords" content="clipboard manager, windows, ocr, productivity, AI, workflow">
+  <meta name="author" content="Ctrl+C">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ctrl+C — Transform Your Digital Workflow Forever">
+  <meta property="og:description" content="The intelligent clipboard that remembers everything, understands context, and anticipates your needs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ctrlc.app">
+  <meta property="og:image" content="https://ctrlc.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ctrl+C — Transform Your Digital Workflow Forever">
+  <meta name="twitter:description" content="The intelligent clipboard that remembers everything, understands context, and anticipates your needs.">
+  <meta name="twitter:image" content="https://ctrlc.app/og-image.png">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Ctrl+C",
+    "description": "Intelligent clipboard manager with AI-powered features for Windows",
+    "operatingSystem": "Windows",
+    "applicationCategory": "ProductivityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <!-- Hotjar Tracking -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:HOTJAR_ID,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+
+  <style>
+    :root {
+      /* Advanced Color System */
+      --primary-50: #eff6ff;
+      --primary-100: #dbeafe;
+      --primary-500: #3b82f6;
+      --primary-600: #2563eb;
+      --primary-700: #1d4ed8;
+      --primary-900: #1e3a8a;
+
+      --accent-400: #8b5cf6;
+      --accent-500: #7c3aed;
+      --accent-600: #6d28d9;
+
+      --success-400: #4ade80;
+      --success-500: #22c55e;
+      --success-600: #16a34a;
+
+      --warning-400: #facc15;
+      --warning-500: #eab308;
+
+      --error-400: #f87171;
+      --error-500: #ef4444;
+
+      /* Sophisticated Neutrals */
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --gray-900: #0f172a;
+
+      /* Advanced Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--primary-600) 0%, var(--accent-500) 100%);
+      --gradient-secondary: linear-gradient(135deg, var(--accent-400) 0%, var(--primary-500) 100%);
+      --gradient-success: linear-gradient(135deg, var(--success-400) 0%, var(--success-600) 100%);
+      --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+
+      /* Advanced Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+      --shadow-glow-lg: 0 0 40px rgba(59, 130, 246, 0.2);
+
+      /* Typography Scale */
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem;
+      --text-4xl: 2.25rem;
+      --text-5xl: 3rem;
+      --text-6xl: 3.75rem;
+      --text-7xl: 4.5rem;
+
+      /* Animation Timing */
+      --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+      --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ::selection {
+      background: var(--primary-100);
+      color: var(--primary-900);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--gray-900);
+      background: var(--gray-50);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(34, 197, 94, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, var(--gray-50) 0%, #ffffff 100%);
+      animation: bgShift 20s ease-in-out infinite;
+    }
+
+    @keyframes bgShift {
+      0%, 100% { filter: hue-rotate(0deg); }
+      50% { filter: hue-rotate(5deg); }
+    }
+
+    /* Floating Particles */
+    .particle {
+      position: absolute;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .particle:nth-child(1) { width: 4px; height: 4px; top: 20%; left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { width: 6px; height: 6px; top: 60%; left: 80%; animation-delay: 2s; }
+    .particle:nth-child(3) { width: 3px; height: 3px; top: 80%; left: 20%; animation-delay: 4s; }
+    .particle:nth-child(4) { width: 5px; height: 5px; top: 30%; left: 70%; animation-delay: 1s; }
+    .particle:nth-child(5) { width: 4px; height: 4px; top: 70%; left: 50%; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0;
+      position: relative;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s var(--ease-out-cubic);
+    }
+
+    .logo-container:hover {
+      transform: scale(1.05);
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+      transform: rotate(45deg);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    }
+
+    .brand-text {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--gray-900);
+      letter-spacing: -0.025em;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gradient-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 9999px;
+      padding: 0.5rem 1rem;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--gray-700);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s var(--ease-out-cubic);
+    }
+
+    .status-badge:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gradient-success);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.2); }
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 6rem;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--gradient-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      border-radius: 9999px;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 2rem;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--accent-600);
+      box-shadow: var(--shadow-md), 0 0 20px rgba(139, 92, 246, 0.1);
+      animation: slideUp 0.8s var(--ease-out-cubic);
+      transition: all 0.3s var(--ease-out-cubic);
+    }
+
+    .hero-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg), 0 0 30px rgba(139, 92, 246, 0.15);
+    }
+
+    .sparkle {
+      display: inline-block;
+      animation: sparkle 1.5s ease-in-out infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.2) rotate(180deg); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-title {
+      font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-700) 50%, var(--primary-600) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideUp 0.8s var(--ease-out-cubic) 0.2s both;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
+      color: var(--gray-600);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      animation: slideUp 0.8s var(--ease-out-cubic) 0.4s both;
+    }
+
+    /* CTA Form */
+    .cta-container {
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      animation: slideUp 0.8s var(--ease-out-cubic) 0.6s both;
+    }
+
+    .form-wrapper {
+      position: relative;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 0.75rem;
+      box-shadow: var(--shadow-xl), var(--shadow-glow);
+      transition: all 0.3s var(--ease-out-cubic);
+    }
+
+    .form-wrapper:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-2xl), var(--shadow-glow-lg);
+    }
+
+    .form-wrapper:focus-within {
+      border-color: var(--primary-400);
+      box-shadow: var(--shadow-2xl), 0 0 30px rgba(59, 130, 246, 0.2);
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .email-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 1rem 1.25rem;
+      font-size: var(--text-base);
+      color: var(--gray-900);
+      outline: none;
+      border-radius: 16px;
+      transition: background 0.3s var(--ease-out-cubic);
+    }
+
+    .email-input:focus {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .email-input::placeholder {
+      color: var(--gray-500);
+      font-weight: 400;
+    }
+
+    .submit-btn {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 16px;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: var(--text-base);
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out-cubic);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      white-space: nowrap;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+    }
+
+    .submit-btn:hover::before {
+      left: 100%;
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Success/Error Messages */
+    .message {
+      margin-top: 1rem;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 500;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid;
+      transition: all 0.3s var(--ease-out-cubic);
+      transform: translateY(10px);
+      opacity: 0;
+    }
+
+    .message.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .success-message {
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--success-600);
+      border-color: var(--success-400);
+    }
+
+    .error-message {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--error-500);
+      border-color: var(--error-400);
+    }
+
+    /* Privacy Text */
+    .privacy-text {
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--gray-500);
+      margin-bottom: 4rem;
+      animation: slideUp 0.8s var(--ease-out-cubic) 0.8s both;
+    }
+
+    .privacy-text a {
+      color: var(--primary-600);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .privacy-text a:hover {
+      color: var(--primary-700);
+      text-decoration: underline;
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 6rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.4s var(--ease-out-cubic);
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 0.8s var(--ease-out-cubic) calc(1s + var(--delay, 0s)) both;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-glass);
+      transition: left 0.6s var(--ease-out-cubic);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-2xl), var(--shadow-glow);
+    }
+
+    .feature-card:hover::before {
+      left: 100%;
+    }
+
+    .feature-card:nth-child(1) { --delay: 0s; }
+    .feature-card:nth-child(2) { --delay: 0.2s; }
+    .feature-card:nth-child(3) { --delay: 0.4s; }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      transition: all 0.3s var(--ease-out-cubic);
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .feature-title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-description {
+      color: var(--gray-600);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Social Proof */
+    .social-proof {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: slideUp 0.8s var(--ease-out-cubic) 1.6s both;
+    }
+
+    .social-proof-text {
+      font-size: var(--text-lg);
+      color: var(--gray-600);
+      margin-bottom: 1rem;
+    }
+
+    .social-proof-badges {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .proof-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gradient-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--gray-700);
+      transition: all 0.3s var(--ease-out-cubic);
+    }
+
+    .proof-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Privacy Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s var(--ease-out-cubic);
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-2xl);
+      transform: scale(0.9) translateY(20px);
+      transition: all 0.3s var(--ease-out-cubic);
+    }
+
+    .modal-overlay.show .modal-content {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .modal-text {
+      color: var(--gray-600);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .modal-close {
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out-cubic);
+      margin-top: 1rem;
+    }
+
+    .modal-close:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .header {
+        padding: 1.5rem 0;
+      }
+
+      .hero {
+        padding: 2rem 0 4rem;
+      }
+
+      .cta-form {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .submit-btn {
+        width: 100%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .social-proof-badges {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Focus Styles */
+    .focus-visible {
+      outline: 3px solid var(--primary-400);
+      outline-offset: 2px;
+    }
+
+    /* Loading States */
+    .loading {
+      position: relative;
+      color: transparent;
+    }
+
+    .loading::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Emotional Storytelling Enhancements */
+    .highlight {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      position: relative;
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+
+    .highlight-feature {
+      color: var(--primary-600);
+      font-weight: 600;
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+      padding: 0.125rem 0.375rem;
+      border-radius: 6px;
+      border: 1px solid var(--primary-200);
+      display: inline-block;
+      animation: highlight-breath 4s ease-in-out infinite;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
+    }
+
+    @keyframes highlight-breath {
+      0%, 100% {
+        box-shadow: 0 0 0 rgba(59, 130, 246, 0.3);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        transform: scale(1.02);
+      }
+    }
+
+    /* Counter Animation */
+    .counter {
+      font-weight: 700;
+      color: var(--primary-600);
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Enhanced Feature Cards with Emotional Appeal */
+    .feature-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      background: var(--gradient-primary);
+      border-radius: inherit;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Emotional Micro-Interactions */
+    .feature-icon {
+      background: var(--gradient-primary);
+      position: relative;
+      overflow: visible;
+    }
+
+    .feature-icon::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      background: var(--gradient-primary);
+      border-radius: inherit;
+      opacity: 0;
+      filter: blur(8px);
+      transition: opacity 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon::after {
+      opacity: 0.6;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    /* Social Proof Enhancement */
+    .proof-badge {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proof-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+      transition: left 0.8s ease;
+    }
+
+    .proof-badge:hover::before {
+      left: 100%;
+    }
+
+    /* Advanced Typography */
+    .hero-title {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-subtitle .highlight {
+      animation-delay: calc(var(--delay, 0) * 0.5s);
+    }
+
+    /* Enhanced CTA with Emotional Appeal */
+    .form-wrapper {
+      position: relative;
+    }
+
+    .form-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      background: var(--gradient-primary);
+      border-radius: inherit;
+      opacity: 0;
+      filter: blur(10px);
+      transition: opacity 0.3s ease;
+    }
+
+    .form-wrapper:focus-within::before {
+      opacity: 0.3;
+      animation: focus-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes focus-glow {
+      0%, 100% { filter: blur(10px); }
+      50% { filter: blur(15px); }
+    }
+
+    /* Emotional State Indicators */
+    .email-input:focus {
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1);
+    }
+
+    .submit-btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn:hover {
+      box-shadow:
+        var(--shadow-lg),
+        var(--shadow-glow),
+        0 0 30px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Success Animation Enhancement */
+    .success-message.show {
+      animation: success-celebration 0.8s ease-out;
+    }
+
+    @keyframes success-celebration {
+      0% {
+        transform: translateY(10px) scale(0.9);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(-5px) scale(1.05);
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Performance Optimizations */
+    .feature-card,
+    .submit-btn,
+    .logo {
+      will-change: transform;
+    }
+
+    /* Responsive Emotional Design */
+    @media (max-width: 768px) {
+      .highlight-feature {
+        padding: 0.0625rem 0.25rem;
+        font-size: 0.9em;
+      }
+
+      .feature-icon::after {
+        display: none; /* Reduce effects on mobile for performance */
+      }
+    }
+
+    /* Dark Mode Support for Future */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --surface: #1e293b;
+        --text: #f8fafc;
+        --text-muted: #94a3b8;
+      }
+
+      .highlight-feature {
+        background: rgba(59, 130, 246, 0.1);
+        border-color: rgba(59, 130, 246, 0.3);
+        color: var(--primary-400);
+      }
+    }
+
+    /* Interactive Demo Section */
+    .demo-section {
+      margin: 6rem 0;
+      text-align: center;
+      animation: slideUp 0.8s var(--ease-out-cubic) 2s both;
+    }
+
+    .demo-title {
+      font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .demo-subtitle {
+      font-size: var(--text-lg);
+      color: var(--gray-600);
+      margin-bottom: 3rem;
+    }
+
+    .demo-workspace {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: var(--shadow-2xl), var(--shadow-glow);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s var(--ease-out-cubic);
+    }
+
+    .demo-workspace:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-2xl), var(--shadow-glow-lg);
+    }
+
+    .demo-screen {
+      background: var(--gray-50);
+      border-radius: 16px;
+      border: 1px solid var(--gray-200);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .demo-header {
+      background: var(--gray-100);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .demo-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .demo-dots span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gray-400);
+    }
+
+    .demo-dots span:nth-child(1) { background: #ff5f57; }
+    .demo-dots span:nth-child(2) { background: #ffbd2e; }
+    .demo-dots span:nth-child(3) { background: #28ca42; }
+
+    .demo-title-bar {
+      font-weight: 600;
+      color: var(--gray-700);
+      font-size: var(--text-sm);
+    }
+
+    .demo-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .clipboard-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid var(--gray-200);
+      transition: all 0.3s var(--ease-out-cubic);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .clipboard-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .clipboard-item:hover {
+      transform: translateX(8px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-300);
+    }
+
+    .clipboard-item:hover::before {
+      left: 100%;
+    }
+
+    .clipboard-item.active {
+      border-color: var(--primary-500);
+      background: var(--primary-50);
+      transform: scale(1.02);
+    }
+
+    .item-icon {
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-primary);
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .item-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    .item-title {
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.25rem;
+    }
+
+    .item-preview {
+      color: var(--gray-600);
+      font-size: var(--text-sm);
+      margin-bottom: 0.5rem;
+      font-family: 'Monaco', 'Menlo', monospace;
+    }
+
+    .item-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--gray-100);
+      color: var(--gray-700);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .item-time {
+      color: var(--gray-500);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .demo-search {
+      position: relative;
+    }
+
+    .demo-search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 2px solid var(--gray-200);
+      border-radius: 16px;
+      font-size: var(--text-base);
+      background: white;
+      transition: all 0.3s var(--ease-out-cubic);
+      outline: none;
+    }
+
+    .demo-search-input:focus {
+      border-color: var(--primary-500);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+      background: var(--primary-50);
+    }
+
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      margin-top: 0.5rem;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s var(--ease-out-cubic);
+      z-index: 10;
+    }
+
+    .search-results.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .search-hint {
+      padding: 1rem;
+      color: var(--gray-500);
+      font-size: var(--text-sm);
+      text-align: center;
+      font-style: italic;
+    }
+
+    .search-result-item {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--gray-100);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .search-result-item:hover {
+      background: var(--primary-50);
+    }
+
+    .search-result-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Demo Animations */
+    @keyframes demo-highlight {
+      0% { background: white; }
+      50% { background: var(--primary-100); }
+      100% { background: white; }
+    }
+
+    .clipboard-item.demo-active {
+      animation: demo-highlight 1s ease-in-out;
+    }
+
+    /* Responsive Demo */
+    @media (max-width: 768px) {
+      .demo-workspace {
+        padding: 1rem;
+        margin: 0 1rem;
+      }
+
+      .clipboard-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+      }
+
+      .item-content {
+        text-align: center;
+      }
+
+      .item-tags {
+        justify-content: center;
+      }
+    }
+
+    /* Final Animation Keyframes */
+    @keyframes copySuccess {
+      0% {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+      }
+      20% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.1);
+      }
+      80% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-60%) scale(0.9);
+      }
+    }
+
+    @keyframes demoSuccess {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+      80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.9);
+      }
+    }
+
+    /* Body Loaded State */
+    body.loaded {
+      overflow-x: hidden;
+    }
+
+    body.loaded .particle {
+      animation-play-state: running;
+    }
+
+    /* Enhanced Performance */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .feature-card,
+    .submit-btn,
+    .logo,
+    .clipboard-item {
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-canvas">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-container">
+        <div class="logo">C+</div>
+        <div class="brand-text">Ctrl+C</div>
+      </div>
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        Early Access • Windows
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="sparkle">✨</span>
+        The Future of Clipboard Management
+        <span class="sparkle">✨</span>
+      </div>
+
+      <h1 class="hero-title">
+        Transform Your Digital<br>
+        Workflow Forever
+      </h1>
+
+      <p class="hero-subtitle">
+        <span class="highlight">Imagine</span> a world where every copy is remembered, every paste is perfect,
+        and your digital workflow flows like <span class="highlight">pure magic</span>.
+        This isn't just software—it's your <span class="highlight">creative superpower</span>.
+      </p>
+
+      <!-- CTA Form -->
+      <div class="cta-container">
+        <div class="form-wrapper">
+          <form class="cta-form" id="waitlist-form">
+            <input
+              type="email"
+              class="email-input"
+              placeholder="Enter your email to join the revolution"
+              required
+              autocomplete="email"
+              id="email-input"
+              aria-label="Email address for early access"
+            >
+            <button type="submit" class="submit-btn">
+              <span>Get Early Access</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="message success-message" id="success-message">
+          🎉 Welcome to the future! You'll be among the first to experience Ctrl+C.
+        </div>
+
+        <div class="message error-message" id="error-message">
+          Please enter a valid email address to continue.
+        </div>
+      </div>
+
+      <p class="privacy-text">
+        Join <span class="counter" data-target="10000">10,000</span>+ visionaries transforming their digital lives.
+        <br>No spam, just pure innovation. <a href="#" onclick="showPrivacy()">Privacy Policy</a>
+      </p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3 class="feature-title">🧠 Mind-Reading OCR</h3>
+        <p class="feature-description">
+          Watch as <span class="highlight-feature">any image becomes living text</span>.
+          Screenshots, photos, documents—they all surrender their secrets
+          to your digital consciousness in <span class="highlight-feature">milliseconds</span>.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">⚡ Time-Bending Search</h3>
+        <p class="feature-description">
+          <span class="highlight-feature">Think it, find it, instantly</span>.
+          Your entire copy history becomes a searchable extension of your mind.
+          No more digging through folders—just <span class="highlight-feature">pure, instant recall</span>.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3 class="feature-title">🛡️ Fortress-Level Privacy</h3>
+        <p class="feature-description">
+          <span class="highlight-feature">Your secrets stay yours</span>.
+          Every keystroke, every copy lives safely in your digital vault.
+          We can't see it. No one can. <span class="highlight-feature">That's a promise</span>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="demo-section">
+      <div class="demo-container">
+        <h2 class="demo-title">See the Magic in Action</h2>
+        <p class="demo-subtitle">Click anywhere on this text to experience Ctrl+C's power</p>
+
+        <div class="demo-workspace">
+          <div class="demo-screen">
+            <div class="demo-header">
+              <div class="demo-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="demo-title-bar">Ctrl+C Dashboard</div>
+            </div>
+            <div class="demo-content">
+              <div class="clipboard-item" data-demo="1">
+                <div class="item-icon">📝</div>
+                <div class="item-content">
+                  <div class="item-title">Meeting Notes</div>
+                  <div class="item-preview">Q3 targets exceeded by 15%...</div>
+                  <div class="item-tags">
+                    <span class="tag">Work</span>
+                    <span class="tag">Important</span>
+                  </div>
+                </div>
+                <div class="item-time">2m ago</div>
+              </div>
+
+              <div class="clipboard-item" data-demo="2">
+                <div class="item-icon">🔗</div>
+                <div class="item-content">
+                  <div class="item-title">Design Inspiration</div>
+                  <div class="item-preview">https://dribbble.com/amazing-ui...</div>
+                  <div class="item-tags">
+                    <span class="tag">Design</span>
+                  </div>
+                </div>
+                <div class="item-time">5m ago</div>
+              </div>
+
+              <div class="clipboard-item" data-demo="3">
+                <div class="item-icon">🧠</div>
+                <div class="item-content">
+                  <div class="item-title">OCR Extracted Text</div>
+                  <div class="item-preview">Quarterly Revenue: $2.4M Growth...</div>
+                  <div class="item-tags">
+                    <span class="tag">OCR</span>
+                    <span class="tag">Financial</span>
+                  </div>
+                </div>
+                <div class="item-time">1h ago</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-search">
+            <input type="text" placeholder="Search your entire clipboard history..." class="demo-search-input">
+            <div class="search-results">
+              <div class="search-hint">Try searching for "revenue", "design", or "meeting"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+      <p class="social-proof-text">
+        Trusted by professionals at leading companies
+      </p>
+      <div class="social-proof-badges">
+        <div class="proof-badge">
+          <span>🚀</span>
+          <span>10k+ Early Users</span>
+        </div>
+        <div class="proof-badge">
+          <span>⭐</span>
+          <span>4.9/5 Rating</span>
+        </div>
+        <div class="proof-badge">
+          <span>🔒</span>
+          <span>Zero Data Collection</span>
+        </div>
+        <div class="proof-badge">
+          <span>💎</span>
+          <span>Lifetime Updates</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Privacy Modal -->
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="modal-content">
+      <h2 class="modal-header">Privacy Policy</h2>
+      <p class="modal-text">
+        We collect your email address solely to notify you when Ctrl+C becomes available.
+        We never share your email with third parties or use it for marketing beyond product updates.
+      </p>
+      <p class="modal-text">
+        Your email is stored securely and you can unsubscribe at any time by clicking
+        the unsubscribe link in any email we send.
+      </p>
+      <p class="modal-text">
+        Ctrl+C itself processes all clipboard data locally on your device. We never
+        have access to your clipboard content, ensuring complete privacy.
+      </p>
+      <p class="modal-text">
+        For questions, contact us at privacy@ctrlc.app
+      </p>
+      <button class="modal-close" onclick="hidePrivacy()">
+        Got it, thanks!
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Enhanced Analytics
+    function trackEvent(action, category = 'User Interaction', value = null) {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+          event_category: category,
+          event_label: window.location.pathname,
+          value: value
+        });
+      }
+    }
+
+    // Advanced Form Handling
+    class FormHandler {
+      constructor() {
+        this.form = document.getElementById('waitlist-form');
+        this.emailInput = document.getElementById('email-input');
+        this.submitBtn = this.form.querySelector('.submit-btn');
+        this.successMessage = document.getElementById('success-message');
+        this.errorMessage = document.getElementById('error-message');
+
+        this.init();
+      }
+
+      init() {
+        this.form.addEventListener('submit', this.handleSubmit.bind(this));
+        this.emailInput.addEventListener('input', this.handleInput.bind(this));
+        this.emailInput.addEventListener('focus', this.handleFocus.bind(this));
+        this.emailInput.addEventListener('blur', this.handleBlur.bind(this));
+
+        // Check for existing signup
+        this.checkExistingSignup();
+      }
+
+      handleSubmit(e) {
+        e.preventDefault();
+
+        const email = this.emailInput.value.trim();
+        if (!this.isValidEmail(email)) {
+          this.showError('Please enter a valid email address.');
+          trackEvent('form_validation_error', 'Form Interaction');
+          return;
+        }
+
+        this.submitEmail(email);
+      }
+
+      async submitEmail(email) {
+        this.setLoading(true);
+        trackEvent('form_submit_attempt', 'Form Interaction');
+
+        try {
+          const response = await fetch('/api/waitlist', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+
+          const result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.error || 'Network response was not ok');
+          }
+
+          // Handle duplicate emails gracefully
+          if (result.duplicate) {
+            this.showSuccess(email, 'You\'re already on our list! 🎉');
+            return;
+          }
+
+          localStorage.setItem('ctrlc_waitlist_email', email);
+          this.showSuccess(email);
+          trackEvent('waitlist_signup_success', 'Conversion');
+        } catch (error) {
+          this.showError('Something went wrong. Please try again.');
+          trackEvent('form_submit_error', 'Form Interaction');
+        } finally {
+          this.setLoading(false);
+        }
+      }
+
+      handleInput() {
+        this.hideMessages();
+        this.validateRealtime();
+      }
+
+      handleFocus() {
+        trackEvent('email_input_focus', 'Form Interaction');
+      }
+
+      handleBlur() {
+        if (this.emailInput.value) {
+          this.validateRealtime();
+        }
+      }
+
+      validateRealtime() {
+        const email = this.emailInput.value.trim();
+        if (email && !this.isValidEmail(email)) {
+          this.emailInput.style.borderColor = 'var(--error-400)';
+        } else {
+          this.emailInput.style.borderColor = '';
+        }
+      }
+
+      isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      setLoading(loading) {
+        this.submitBtn.disabled = loading;
+        if (loading) {
+          this.submitBtn.classList.add('loading');
+          this.submitBtn.querySelector('span').textContent = 'Joining...';
+        } else {
+          this.submitBtn.classList.remove('loading');
+          this.submitBtn.querySelector('span').textContent = 'Get Early Access';
+        }
+      }
+
+      showSuccess(email, customMessage = null) {
+        this.form.style.display = 'none';
+        this.successMessage.classList.add('show');
+
+        if (customMessage) {
+          this.successMessage.innerHTML = `
+            ${customMessage}
+            <br><small>We'll email you at ${email} when it's ready.</small>
+          `;
+        } else {
+          this.successMessage.innerHTML = `
+            🎉 Welcome to the future! You'll be among the first to experience Ctrl+C.
+            <br><small>We'll email you at ${email} when it's ready.</small>
+          `;
+        }
+      }
+
+      showError(message) {
+        this.errorMessage.textContent = message;
+        this.errorMessage.classList.add('show');
+        this.emailInput.style.borderColor = 'var(--error-400)';
+      }
+
+      hideMessages() {
+        this.successMessage.classList.remove('show');
+        this.errorMessage.classList.remove('show');
+        this.emailInput.style.borderColor = '';
+      }
+
+      checkExistingSignup() {
+        try {
+          const savedEmail = localStorage.getItem('ctrlc_waitlist_email');
+          if (savedEmail) {
+            this.showSuccess(savedEmail);
+          }
+        } catch (e) {}
+      }
+    }
+
+    // Privacy Modal
+    function showPrivacy() {
+      document.getElementById('privacy-modal').classList.add('show');
+      trackEvent('privacy_policy_opened', 'User Interaction');
+    }
+
+    function hidePrivacy() {
+      document.getElementById('privacy-modal').classList.remove('show');
+    }
+
+    // Close modal on outside click
+    document.getElementById('privacy-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'privacy-modal') {
+        hidePrivacy();
+      }
+    });
+
+    // Enhanced Analytics Tracking
+    class AnalyticsTracker {
+      constructor() {
+        this.startTime = Date.now();
+        this.maxScroll = 0;
+        this.hasScrolled25 = false;
+        this.hasScrolled50 = false;
+        this.hasScrolled75 = false;
+
+        this.init();
+      }
+
+      init() {
+        this.trackPageView();
+        this.trackScrollDepth();
+        this.trackTimeOnPage();
+        this.trackInteractions();
+      }
+
+      trackPageView() {
+        trackEvent('page_view', 'Page Views');
+      }
+
+      trackScrollDepth() {
+        window.addEventListener('scroll', () => {
+          const scrollPercent = Math.round(
+            (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+          );
+
+          if (scrollPercent > this.maxScroll) {
+            this.maxScroll = scrollPercent;
+
+            if (scrollPercent >= 75 && !this.hasScrolled75) {
+              this.hasScrolled75 = true;
+              trackEvent('scroll_75_percent', 'Engagement');
+            } else if (scrollPercent >= 50 && !this.hasScrolled50) {
+              this.hasScrolled50 = true;
+              trackEvent('scroll_50_percent', 'Engagement');
+            } else if (scrollPercent >= 25 && !this.hasScrolled25) {
+              this.hasScrolled25 = true;
+              trackEvent('scroll_25_percent', 'Engagement');
+            }
+          }
+        });
+      }
+
+      trackTimeOnPage() {
+        window.addEventListener('beforeunload', () => {
+          const timeOnPage = Math.round((Date.now() - this.startTime) / 1000);
+          trackEvent('time_on_page', 'Engagement', timeOnPage);
+        });
+      }
+
+      trackInteractions() {
+        // Track feature card hovers
+        document.querySelectorAll('.feature-card').forEach((card, index) => {
+          card.addEventListener('mouseenter', () => {
+            trackEvent(`feature_${index + 1}_hover`, 'Feature Interaction');
+          });
+        });
+
+        // Track logo clicks
+        document.querySelector('.logo-container').addEventListener('click', () => {
+          trackEvent('logo_click', 'Brand Interaction');
+        });
+
+        // Track status badge clicks
+        document.querySelector('.status-badge').addEventListener('click', () => {
+          trackEvent('status_badge_click', 'User Interaction');
+        });
+      }
+    }
+
+    // Enhanced Scroll Animations
+    class ScrollAnimations {
+      constructor() {
+        this.observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        this.init();
+      }
+
+      init() {
+        if ('IntersectionObserver' in window) {
+          this.observer = new IntersectionObserver(
+            this.handleIntersection.bind(this),
+            this.observerOptions
+          );
+
+          // Observe elements that should animate on scroll
+          document.querySelectorAll('.feature-card, .social-proof').forEach(el => {
+            this.observer.observe(el);
+          });
+        }
+      }
+
+      handleIntersection(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            this.observer.unobserve(entry.target);
+          }
+        });
+      }
+    }
+
+    // Performance Monitoring
+    class PerformanceMonitor {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        // Track page load performance
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            const navigation = performance.getEntriesByType('navigation')[0];
+            const loadTime = Math.round(navigation.loadEventEnd - navigation.loadEventStart);
+
+            trackEvent('page_load_time', 'Performance', loadTime);
+
+            // Track Core Web Vitals if available
+            this.trackWebVitals();
+          }, 0);
+        });
+      }
+
+      trackWebVitals() {
+        // Track First Contentful Paint
+        new PerformanceObserver((entryList) => {
+          for (const entry of entryList.getEntries()) {
+            if (entry.name === 'first-contentful-paint') {
+              trackEvent('first_contentful_paint', 'Performance', Math.round(entry.startTime));
+            }
+          }
+        }).observe({ entryTypes: ['paint'] });
+
+        // Track Cumulative Layout Shift
+        let clsValue = 0;
+        new PerformanceObserver((entryList) => {
+          for (const entry of entryList.getEntries()) {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value;
+            }
+          }
+        }).observe({ entryTypes: ['layout-shift'] });
+
+        // Report CLS on page unload
+        window.addEventListener('beforeunload', () => {
+          trackEvent('cumulative_layout_shift', 'Performance', Math.round(clsValue * 1000));
+        });
+      }
+    }
+
+    // Initialize everything when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      new FormHandler();
+      new AnalyticsTracker();
+      new ScrollAnimations();
+      new PerformanceMonitor();
+      new InteractiveDemo();
+      new AnimatedCounters();
+
+      // Add final animation touches
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, 100);
+    });
+
+    // Interactive Demo System
+    class InteractiveDemo {
+      constructor() {
+        this.searchInput = document.querySelector('.demo-search-input');
+        this.searchResults = document.querySelector('.search-results');
+        this.clipboardItems = document.querySelectorAll('.clipboard-item');
+
+        this.init();
+      }
+
+      init() {
+        this.setupSearch();
+        this.setupClipboardInteractions();
+        this.setupKeyboardShortcuts();
+      }
+
+      setupSearch() {
+        const searchData = {
+          'revenue': { item: 3, highlight: 'Quarterly Revenue: $2.4M Growth' },
+          'design': { item: 2, highlight: 'Design Inspiration' },
+          'meeting': { item: 1, highlight: 'Meeting Notes' },
+          'q3': { item: 1, highlight: 'Q3 targets exceeded' },
+          'financial': { item: 3, highlight: 'Financial data' },
+          'ocr': { item: 3, highlight: 'OCR Extracted Text' }
+        };
+
+        this.searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase();
+
+          if (query.length > 0) {
+            this.showSearchResults();
+            this.highlightMatchingItems(query, searchData);
+            trackEvent('demo_search', 'Demo Interaction', query);
+          } else {
+            this.hideSearchResults();
+            this.clearHighlights();
+          }
+        });
+
+        this.searchInput.addEventListener('focus', () => {
+          if (this.searchInput.value.length > 0) {
+            this.showSearchResults();
+          }
+          trackEvent('demo_search_focus', 'Demo Interaction');
+        });
+
+        this.searchInput.addEventListener('blur', () => {
+          setTimeout(() => this.hideSearchResults(), 200);
+        });
+      }
+
+      setupClipboardInteractions() {
+        this.clipboardItems.forEach((item, index) => {
+          item.addEventListener('click', () => {
+            this.selectItem(item, index + 1);
+            trackEvent(`demo_item_${index + 1}_click`, 'Demo Interaction');
+          });
+
+          // Double-click to "copy" effect
+          item.addEventListener('dblclick', () => {
+            this.copyItemEffect(item);
+            trackEvent(`demo_item_${index + 1}_copy`, 'Demo Interaction');
+          });
+        });
+      }
+
+      setupKeyboardShortcuts() {
+        document.addEventListener('keydown', (e) => {
+          // Demo-specific shortcuts
+          if (e.ctrlKey && e.key === 'f' && document.activeElement === this.searchInput) {
+            e.preventDefault();
+            this.showSearchHint();
+          }
+        });
+      }
+
+      highlightMatchingItems(query, searchData) {
+        this.clearHighlights();
+
+        for (const [keyword, data] of Object.entries(searchData)) {
+          if (keyword.includes(query) || query.includes(keyword)) {
+            const item = document.querySelector(`[data-demo="${data.item}"]`);
+            if (item) {
+              item.classList.add('active');
+              this.animateItemHighlight(item);
+            }
+          }
+        }
+      }
+
+      selectItem(item, itemNumber) {
+        this.clearHighlights();
+        item.classList.add('active');
+
+        // Simulate "copying" the item
+        setTimeout(() => {
+          this.showCopySuccess(item);
+        }, 300);
+      }
+
+      copyItemEffect(item) {
+        const copyIndicator = document.createElement('div');
+        copyIndicator.className = 'copy-indicator';
+        copyIndicator.textContent = 'Copied! ✓';
+        copyIndicator.style.cssText = `
+          position: absolute;
+          top: 50%;
+          right: 1rem;
+          transform: translateY(-50%);
+          background: var(--success-500);
+          color: white;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          font-size: 0.875rem;
+          font-weight: 600;
+          z-index: 10;
+          animation: copySuccess 2s ease-out forwards;
+        `;
+
+        item.appendChild(copyIndicator);
+
+        setTimeout(() => {
+          if (copyIndicator.parentNode) {
+            copyIndicator.remove();
+          }
+        }, 2000);
+      }
+
+      animateItemHighlight(item) {
+        item.classList.add('demo-active');
+        setTimeout(() => {
+          item.classList.remove('demo-active');
+        }, 1000);
+      }
+
+      showSearchResults() {
+        this.searchResults.classList.add('show');
+      }
+
+      hideSearchResults() {
+        this.searchResults.classList.remove('show');
+      }
+
+      clearHighlights() {
+        this.clipboardItems.forEach(item => {
+          item.classList.remove('active', 'demo-active');
+        });
+      }
+
+      showSearchHint() {
+        const hint = document.querySelector('.search-hint');
+        hint.style.animation = 'highlight-breath 1s ease-in-out';
+        setTimeout(() => {
+          hint.style.animation = '';
+        }, 1000);
+      }
+
+      showCopySuccess(item) {
+        const successMsg = document.createElement('div');
+        successMsg.className = 'demo-success';
+        successMsg.innerHTML = '🎉 Item copied to clipboard!';
+        successMsg.style.cssText = `
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: var(--gradient-success);
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          font-weight: 600;
+          box-shadow: var(--shadow-xl);
+          z-index: 1000;
+          animation: demoSuccess 2s ease-out forwards;
+        `;
+
+        document.body.appendChild(successMsg);
+
+        setTimeout(() => {
+          if (successMsg.parentNode) {
+            successMsg.remove();
+          }
+        }, 2000);
+      }
+    }
+
+    // Animated Counter System
+    class AnimatedCounters {
+      constructor() {
+        this.counters = document.querySelectorAll('.counter');
+        this.init();
+      }
+
+      init() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              this.animateCounter(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+
+        this.counters.forEach(counter => observer.observe(counter));
+      }
+
+      animateCounter(element) {
+        const target = parseInt(element.dataset.target);
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+          current += increment;
+          const value = Math.floor(current);
+
+          if (target >= 1000) {
+            element.textContent = (value / 1000).toFixed(1) + 'k';
+          } else {
+            element.textContent = value.toLocaleString();
+          }
+
+          if (current >= target) {
+            if (target >= 1000) {
+              element.textContent = (target / 1000).toFixed(0) + 'k';
+            } else {
+              element.textContent = target.toLocaleString();
+            }
+            clearInterval(timer);
+          }
+        }, 16);
+      }
+    }
+
+    // Keyboard shortcuts for power users
+    document.addEventListener('keydown', (e) => {
+      // Focus email input with Ctrl+K
+      if (e.ctrlKey && e.key === 'k') {
+        e.preventDefault();
+        document.getElementById('email-input').focus();
+        trackEvent('keyboard_shortcut_used', 'Power User');
+      }
+
+      // Close modal with Escape
+      if (e.key === 'Escape') {
+        hidePrivacy();
+      }
+    });
+  </script>
+
+  <!-- Advanced Animations -->
+  <script src="advanced-animations.js"></script>
+</body>
+</html>

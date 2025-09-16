@@ -1,0 +1,20 @@
+{
+  "name": "ctrlplusc-website",
+  "version": "1.0.0",
+  "description": "High-converting landing page for Ctrl+C clipboard manager",
+  "main": "api/waitlist.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'",
+    "start": "vercel dev --listen 3000"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["clipboard", "productivity", "windows", "landing-page"],
+  "author": "Ctrl+C",
+  "license": "MIT"
+}
