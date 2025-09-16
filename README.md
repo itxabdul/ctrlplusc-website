@@ -5,7 +5,7 @@
 Built with cutting-edge UI/UX design principles to achieve 10%+ conversion rates.
 
 ## 🎯 Live Site
-**https://ctrlplusc.com**
+**https://ctrlplusc-website.vercel.app**
 
 ## ✨ Features
 
@@ -14,7 +14,7 @@ Built with cutting-edge UI/UX design principles to achieve 10%+ conversion rates
 - **⚡ Lightning Fast**: <2s load times, 60fps animations, optimized performance
 - **📱 Mobile-First**: Responsive design optimized for all devices
 - **🔒 Enterprise Security**: Rate limiting, input validation, CORS protection
-- **📈 Advanced Analytics**: GA4, Hotjar, conversion tracking, heat maps
+- **📈 Privacy-First Analytics**: Custom analytics system, no external trackers
 
 ## 🛠️ Tech Stack
 
@@ -22,13 +22,13 @@ Built with cutting-edge UI/UX design principles to achieve 10%+ conversion rates
 - **Backend**: Vercel Serverless Functions
 - **Database**: Supabase (PostgreSQL)
 - **Hosting**: Vercel Edge Network
-- **Analytics**: Google Analytics 4, Hotjar
+- **Analytics**: Privacy-focused custom analytics system
 
 ## 🚀 Quick Deploy
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/ctrlplusc-website
+   git clone https://github.com/itxabdul/ctrlplusc-website
    cd ctrlplusc-website
    ```
 
@@ -74,12 +74,10 @@ CREATE TABLE waitlist_signups (
 
 ## 📈 Analytics Events
 
-- `page_view` - Initial page load
-- `email_input_focus` - User starts signup process
+- `pageview` - Initial page load
+- `email_signup` - Successful signup
 - `form_submit_attempt` - Form submission
-- `waitlist_signup_success` - Successful signup
 - `demo_interaction` - Interactive demo usage
-- `scroll_depth` - Engagement tracking
 
 ## 🎨 Design System
 
