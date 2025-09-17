@@ -653,12 +653,64 @@
       }
     }
 
-    /* Features Section */
-    .features {
+    /* Features Summary */
+    .features-summary {
+      margin: var(--space-8) 0;
+      text-align: center;
+    }
+
+    .summary-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 var(--space-4);
+    }
+
+    .summary-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: var(--space-6);
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: var(--space-4);
-      margin: var(--space-6) 0;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-3);
+      text-align: left;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      background: var(--gradient-aluminum);
+      border: 1px solid var(--steel);
+      border-radius: var(--radius-xl);
+      padding: var(--space-3) var(--space-4);
+      transition: all 0.3s var(--ease-out);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--chrome);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .feature-bullet {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      font-size: 0.9rem;
+      color: var(--silver);
+      font-weight: 500;
+      line-height: 1.4;
     }
 
     /* App Interface Mockup Section */
@@ -1032,117 +1084,56 @@
       width: 100%;
     }
 
-    .feature-card {
-      background: var(--gradient-aluminum);
-      border: 1px solid var(--steel);
-      border-radius: var(--radius-2xl);
-      padding: var(--space-4);
-      text-align: center;
-      transition: all 0.4s var(--ease-out);
-      box-shadow: var(--shadow-large), var(--shadow-inset);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
+
+    /* Conversion Elements */
+    .conversion-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: linear-gradient(135deg, #ff4444, #ff6b35);
+      color: white;
+      padding: var(--space-2) var(--space-4);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      animation: pulse 2s infinite;
+      box-shadow: var(--shadow-medium);
     }
 
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, transparent 50%);
-      opacity: 0;
-      transition: opacity 0.3s;
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
     }
 
-    .feature-card:hover {
-      transform: translateY(-12px) scale(1.02);
-      border-color: var(--gray-600);
-      box-shadow: var(--shadow-dramatic);
+    .trust-indicators {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-6);
+      margin: var(--space-6) 0 var(--space-4);
+      flex-wrap: wrap;
     }
 
-    .feature-card:hover::before {
-      opacity: 1;
-    }
-
-    .feature-icon {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto var(--space-2);
-      background: var(--gradient-chrome);
-      border-radius: var(--radius-xl);
+    .trust-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      transition: all 0.4s var(--ease-bounce);
-      box-shadow: var(--glow-white), var(--shadow-inset);
-      position: relative;
-      overflow: hidden;
-      color: var(--obsidian);
-    }
-
-    .feature-icon::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.6s;
-    }
-
-    .feature-card:hover .feature-icon {
-      transform: scale(1.15) rotate(10deg);
-      box-shadow: var(--shadow-large);
-    }
-
-    .feature-card:hover .feature-icon::before {
-      left: 100%;
-    }
-
-    .feature-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: var(--space-2);
-    }
-
-    .feature-description {
-      color: var(--gray-400);
-      line-height: 1.5;
+      gap: var(--space-2);
       font-size: 0.85rem;
+      color: var(--silver);
     }
 
-    .highlight-feature {
-      color: var(--silver-light);
-      font-weight: 600;
-      position: relative;
+    .trust-icon {
+      font-size: 1rem;
     }
 
-    .highlight-feature::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--silver-light);
-      transition: width 0.3s var(--ease-out);
-    }
-
-    .feature-card:hover .highlight-feature::after {
-      width: 100%;
+    .trust-text {
+      font-weight: 500;
     }
 
     /* Privacy Text */
     .privacy-text {
       text-align: center;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       color: var(--gray-500);
       margin-bottom: var(--space-8);
       opacity: 0;
@@ -1288,9 +1279,9 @@
         margin: var(--space-4) 0;
       }
 
-      .features {
+      .features-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-6);
+        gap: var(--space-4);
       }
 
       .social-proof-badges {
@@ -1380,21 +1371,24 @@
         and your digital workflow flows like pure magic. This isn't just software—it's your creative superpower.
       </p>
 
-      <!-- CTA Form -->
+      <!-- Conversion-Optimized CTA -->
       <div class="cta-container">
+        <div class="conversion-badge">
+          🔥 Limited Early Access • Only 500 spots remaining
+        </div>
         <div class="form-wrapper">
           <form class="cta-form" id="waitlist-form">
             <input
               type="email"
               class="email-input"
-              placeholder="Enter your email to join the revolution"
+              placeholder="Enter your email to secure your spot"
               required
               autocomplete="email"
               id="email-input"
               aria-label="Email address for early access"
             >
             <button type="submit" class="submit-btn">
-              <span>Get Early Access</span>
+              <span>🚀 Reserve My Spot</span>
             </button>
           </form>
         </div>
@@ -1408,9 +1402,22 @@
         </div>
       </div>
 
+      <div class="trust-indicators">
+        <div class="trust-item">
+          <span class="trust-icon">👥</span>
+          <span class="trust-text"><span class="counter" data-target="12500">12.5k</span>+ creators joined</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">⭐</span>
+          <span class="trust-text">4.9/5 satisfaction</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <span class="trust-text">100% private</span>
+        </div>
+      </div>
       <p class="privacy-text">
-        Join <span class="counter" data-target="10000">10k</span>+ visionaries transforming their digital lives.
-        <br>No spam, just pure innovation. <a href="#" onclick="showPrivacy()">Privacy Policy</a>
+        No spam, just innovation. <a href="#" onclick="showPrivacy()">Privacy Policy</a>
       </p>
     </section>
 
@@ -1544,36 +1551,36 @@
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features fade-in">
-      <div class="feature-card">
-        <div class="feature-icon">🧠</div>
-        <h3 class="feature-title">Mind-Reading OCR</h3>
-        <p class="feature-description">
-          Watch as <span class="highlight-feature">any image becomes living text</span>.
-          Screenshots, photos, documents—they all surrender their secrets
-          to your digital consciousness in <span class="highlight-feature">milliseconds</span>.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3 class="feature-title">Time-Bending Search</h3>
-        <p class="feature-description">
-          <span class="highlight-feature">Think it, find it, instantly</span>.
-          Your entire copy history becomes a searchable extension of your mind.
-          No more digging through folders—just <span class="highlight-feature">pure, instant recall</span>.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🛡️</div>
-        <h3 class="feature-title">Fortress-Level Privacy</h3>
-        <p class="feature-description">
-          <span class="highlight-feature">Your secrets stay yours</span>.
-          Every keystroke, every copy lives safely in your digital vault.
-          We can't see it. No one can. <span class="highlight-feature">That's a promise</span>.
-        </p>
+    <!-- Features Summary -->
+    <section class="features-summary fade-in">
+      <div class="summary-container">
+        <h2 class="summary-title">Core Power Features</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <span class="feature-bullet">🧠</span>
+            <span class="feature-text">Intelligent OCR extracts text from any image instantly</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet">⚡</span>
+            <span class="feature-text">Lightning-fast search through unlimited clipboard history</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet">🛡️</span>
+            <span class="feature-text">100% local storage - your data never leaves your device</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet">🎯</span>
+            <span class="feature-text">Smart categorization sorts content automatically</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet">🔄</span>
+            <span class="feature-text">Cross-app synchronization maintains seamless workflow</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-bullet">⌨️</span>
+            <span class="feature-text">Customizable hotkeys for power user productivity</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1896,10 +1903,10 @@
           }
         });
 
-        tl.fromTo('.feature-card', {
+        tl.fromTo('.feature-item', {
           opacity: 0,
-          y: 100,
-          scale: 0.8,
+          y: 50,
+          scale: 0.95,
           rotateY: 15
         }, {
           opacity: 1,
@@ -1982,12 +1989,12 @@
         cursor: none;
       }
 
-      a, button, .feature-card, .mockup-card, .workflow-step, .proof-badge {
+      a, button, .feature-item, .mockup-card, .workflow-step, .proof-badge {
         cursor: none;
       }
 
       /* Enhanced material hover states */
-      .feature-card:hover, .mockup-card:hover, .workflow-step:hover {
+      .feature-item:hover, .mockup-card:hover, .workflow-step:hover {
         border-color: var(--chrome) !important;
         box-shadow: var(--glow-white) !important;
         transform: translateY(-8px) scale(1.02) !important;
@@ -2005,7 +2012,7 @@
           cursor: auto;
         }
 
-        .feature-card, .mockup-card, .workflow-step {
+        .feature-item, .mockup-card, .workflow-step {
           cursor: auto;
         }
       }
