@@ -1705,11 +1705,25 @@
         this.setLoading(true);
 
         try {
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          localStorage.setItem('ctrlc_waitlist_email', email);
-          this.showSuccess(email);
+          const response = await fetch('/api/waitlist', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email })
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            localStorage.setItem('ctrlc_waitlist_email', email);
+            this.showSuccess(email);
+          } else {
+            this.showError(result.error || 'Something went wrong. Please try again.');
+          }
         } catch (error) {
-          this.showError('Something went wrong. Please try again.');
+          console.error('Submission error:', error);
+          this.showError('Network error. Please check your connection and try again.');
         } finally {
           this.setLoading(false);
         }
