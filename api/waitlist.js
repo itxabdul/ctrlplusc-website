@@ -102,7 +102,11 @@ export default async function handler(req, res) {
       }
 
       console.error('Supabase error:', error);
-      return res.status(500).json({ error: 'Database error occurred' });
+      return res.status(500).json({
+        error: 'Database error occurred',
+        details: error.message,
+        code: error.code
+      });
     }
 
     // Update rate limiting
