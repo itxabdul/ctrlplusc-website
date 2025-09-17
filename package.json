@@ -9,12 +9,20 @@
     "start": "vercel dev --listen 3000"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.38.0"
+    "@studio-freight/lenis": "^1.0.42",
+    "@supabase/supabase-js": "^2.38.0",
+    "gsap": "^3.13.0",
+    "lenis": "^1.3.11"
   },
   "engines": {
     "node": ">=18.0.0"
   },
-  "keywords": ["clipboard", "productivity", "windows", "landing-page"],
+  "keywords": [
+    "clipboard",
+    "productivity",
+    "windows",
+    "landing-page"
+  ],
   "author": "Ctrl+C",
   "license": "MIT"
 }

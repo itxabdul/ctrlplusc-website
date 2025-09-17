@@ -19,41 +19,49 @@
   <!-- Animation Libraries -->
   <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 
   <style>
     :root {
-      /* Sophisticated Monochrome Palette */
+      /* Sophisticated Black & White Palette */
       --black: #000000;
       --gray-950: #0a0a0a;
-      --gray-900: #171717;
-      --gray-800: #262626;
-      --gray-700: #404040;
-      --gray-600: #525252;
-      --gray-500: #737373;
-      --gray-400: #a3a3a3;
-      --gray-300: #d4d4d4;
-      --gray-200: #e5e5e5;
+      --gray-900: #111111;
+      --gray-800: #1a1a1a;
+      --gray-700: #2a2a2a;
+      --gray-600: #404040;
+      --gray-500: #666666;
+      --gray-400: #999999;
+      --gray-300: #cccccc;
+      --gray-200: #e6e6e6;
       --gray-100: #f5f5f5;
       --gray-50: #fafafa;
       --white: #ffffff;
 
-      /* Accent Colors */
-      --blue: #0066ff;
-      --blue-light: #3b82f6;
-      --blue-dark: #0052cc;
+      /* Harmonious Accent Colors */
+      --blue: #0070f3;
+      --blue-light: #3291ff;
+      --blue-dark: #0056b3;
+      --purple: #7c3aed;
+      --green: #00c851;
+      --orange: #ff6b35;
 
-      /* Advanced Shadows */
-      --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      --shadow-dramatic: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      /* Sophisticated Shadows */
+      --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+      --shadow-soft: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 10px rgba(0, 0, 0, 0.12);
+      --shadow-large: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 20px rgba(0, 0, 0, 0.22);
+      --shadow-dramatic: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+      --shadow-white: 0 8px 32px rgba(255, 255, 255, 0.1);
 
       /* Artistic Gradients */
       --gradient-subtle: linear-gradient(145deg, var(--gray-50) 0%, var(--white) 100%);
       --gradient-card: linear-gradient(145deg, var(--gray-900) 0%, var(--gray-800) 100%);
+      --gradient-card-white: linear-gradient(145deg, var(--white) 0%, var(--gray-50) 100%);
       --gradient-accent: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-      --gradient-text: linear-gradient(135deg, var(--white) 0%, var(--gray-200) 100%);
+      --gradient-accent-alt: linear-gradient(135deg, var(--purple) 0%, var(--blue) 100%);
+      --gradient-text: linear-gradient(135deg, var(--white) 0%, var(--gray-300) 100%);
+      --gradient-text-dark: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-700) 100%);
 
       /* Typography */
       --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -114,7 +122,7 @@
       min-height: 100vh;
     }
 
-    /* Artistic Background with Subtle Patterns */
+    /* Artistic Background with Sophisticated Patterns */
     .bg-canvas {
       position: fixed;
       top: 0;
@@ -123,8 +131,9 @@
       height: 100%;
       z-index: -2;
       background:
-        radial-gradient(circle at 25% 25%, var(--gray-900) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, var(--gray-800) 0%, transparent 50%),
+        radial-gradient(circle at 20% 20%, rgba(0, 112, 243, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.01) 0%, transparent 30%),
         var(--gray-950);
     }
 
@@ -136,18 +145,18 @@
       width: 100%;
       height: 100%;
       background-image:
-        linear-gradient(90deg, var(--gray-900) 1px, transparent 1px),
-        linear-gradient(180deg, var(--gray-900) 1px, transparent 1px);
-      background-size: 100px 100px;
-      opacity: 0.1;
-      animation: drift 20s ease-in-out infinite;
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 120px 120px;
+      opacity: 0.4;
+      animation: drift 30s ease-in-out infinite;
     }
 
     @keyframes drift {
-      0%, 100% { transform: translateX(0) translateY(0); }
-      25% { transform: translateX(10px) translateY(-10px); }
-      50% { transform: translateX(-5px) translateY(10px); }
-      75% { transform: translateX(5px) translateY(5px); }
+      0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+      25% { transform: translateX(15px) translateY(-12px) rotate(1deg); }
+      50% { transform: translateX(-8px) translateY(15px) rotate(-1deg); }
+      75% { transform: translateX(8px) translateY(8px) rotate(0.5deg); }
     }
 
     /* Container */
@@ -261,7 +270,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: var(--space-20) 0 var(--space-24);
+      padding: var(--space-16) 0 var(--space-20);
       max-width: 1000px;
       margin: 0 auto;
       position: relative;
@@ -275,7 +284,7 @@
       border: 1px solid var(--gray-700);
       border-radius: 9999px;
       padding: var(--space-3) var(--space-6);
-      margin-bottom: var(--space-12);
+      margin-bottom: var(--space-8);
       font-size: 0.875rem;
       font-weight: 500;
       color: var(--gray-300);
@@ -297,7 +306,7 @@
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      margin-bottom: var(--space-6);
+      margin-bottom: var(--space-5);
       background: var(--gradient-text);
       -webkit-background-clip: text;
       background-clip: text;
@@ -318,7 +327,7 @@
     .hero-subtitle {
       font-size: clamp(1.125rem, 3vw, 1.375rem);
       color: var(--gray-400);
-      margin-bottom: var(--space-12);
+      margin-bottom: var(--space-8);
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
@@ -338,7 +347,7 @@
     /* CTA Form */
     .cta-container {
       max-width: 600px;
-      margin: 0 auto var(--space-16);
+      margin: 0 auto var(--space-10);
       opacity: 0;
       transform: translateY(30px);
       animation: slideUp 0.8s var(--ease-out) 0.8s forwards;
@@ -445,7 +454,7 @@
 
     /* Copy-Paste Flow Visualization */
     .workflow-demo {
-      margin: var(--space-24) 0;
+      margin: var(--space-16) 0;
       text-align: center;
     }
 
@@ -459,13 +468,13 @@
     .demo-subtitle {
       font-size: 1.125rem;
       color: var(--gray-400);
-      margin-bottom: var(--space-16);
+      margin-bottom: var(--space-12);
     }
 
     .workflow-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--space-8);
+      gap: var(--space-6);
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
@@ -481,6 +490,7 @@
       box-shadow: var(--shadow-large);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .workflow-step::before {
@@ -496,7 +506,7 @@
     }
 
     .workflow-step:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-12px) scale(1.05);
       border-color: var(--gray-600);
       box-shadow: var(--shadow-dramatic);
     }
@@ -517,11 +527,28 @@
       font-size: 2rem;
       box-shadow: var(--shadow-medium);
       transition: all 0.4s var(--ease-bounce);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.8s;
     }
 
     .workflow-step:hover .step-icon {
-      transform: scale(1.1) rotate(5deg);
+      transform: scale(1.15) rotate(15deg);
       box-shadow: var(--shadow-large);
+    }
+
+    .workflow-step:hover .step-icon::before {
+      left: 100%;
     }
 
     .step-title {
@@ -543,21 +570,191 @@
       justify-content: center;
       color: var(--blue);
       font-size: 2rem;
-      animation: bounce 2s ease-in-out infinite;
+      animation: pulse-glow 3s ease-in-out infinite;
+      position: relative;
     }
 
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
+    .workflow-arrow::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, var(--blue) 0%, transparent 70%);
+      opacity: 0;
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        transform: translateX(0) scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translateX(10px) scale(1.1);
+        opacity: 1;
+      }
     }
 
     /* Features Section */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--space-6);
+      margin: var(--space-16) 0;
+    }
+
+    /* White Mockup Section */
+    .mockup-section {
+      background: var(--gradient-card-white);
+      margin: var(--space-20) 0;
+      padding: var(--space-20) 0;
+      border-radius: var(--radius-3xl);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-white);
+    }
+
+    .mockup-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0, 112, 243, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .mockup-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      text-align: center;
+    }
+
+    .mockup-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: var(--space-6);
+      background: var(--gradient-text-dark);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mockup-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      margin-bottom: var(--space-12);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: var(--space-8);
-      margin: var(--space-24) 0;
+      margin-top: var(--space-12);
+    }
+
+    .mockup-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      text-align: center;
+      transition: all 0.4s var(--ease-out);
+      box-shadow: var(--shadow-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 112, 243, 0.03) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .mockup-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gray-300);
+      box-shadow: var(--shadow-large);
+    }
+
+    .mockup-card:hover::before {
+      opacity: 1;
+    }
+
+    .mockup-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--space-6);
+      background: var(--gradient-accent);
+      border-radius: var(--radius-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: var(--shadow-medium);
+      transition: all 0.4s var(--ease-bounce);
+      position: relative;
+      z-index: 2;
+    }
+
+    .mockup-card:hover .mockup-icon {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: var(--shadow-large);
+    }
+
+    .mockup-card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: var(--space-3);
+      position: relative;
+      z-index: 2;
+    }
+
+    .mockup-card-description {
+      color: var(--gray-600);
+      line-height: 1.6;
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .highlight-mockup {
+      color: var(--blue);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .highlight-mockup::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue);
+      transition: width 0.3s var(--ease-out);
+    }
+
+    .mockup-card:hover .highlight-mockup::after {
+      width: 100%;
     }
 
     .feature-card {
@@ -570,6 +767,7 @@
       box-shadow: var(--shadow-large);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .feature-card::before {
@@ -585,7 +783,7 @@
     }
 
     .feature-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-12px) scale(1.02);
       border-color: var(--gray-600);
       box-shadow: var(--shadow-dramatic);
     }
@@ -606,11 +804,28 @@
       font-size: 2rem;
       transition: all 0.4s var(--ease-bounce);
       box-shadow: var(--shadow-medium);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.6s;
     }
 
     .feature-card:hover .feature-icon {
-      transform: scale(1.15) rotate(5deg);
+      transform: scale(1.15) rotate(10deg);
       box-shadow: var(--shadow-large);
+    }
+
+    .feature-card:hover .feature-icon::before {
+      left: 100%;
     }
 
     .feature-title {
@@ -678,13 +893,13 @@
     /* Social Proof */
     .social-proof {
       text-align: center;
-      margin: var(--space-24) 0;
+      margin: var(--space-16) 0;
     }
 
     .social-proof-text {
       font-size: 1.25rem;
       color: var(--gray-400);
-      margin-bottom: var(--space-8);
+      margin-bottom: var(--space-6);
     }
 
     .social-proof-badges {
@@ -707,13 +922,31 @@
       color: var(--gray-300);
       transition: all 0.3s var(--ease-out);
       box-shadow: var(--shadow-medium);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proof-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 112, 243, 0.2), transparent);
+      transition: left 0.6s;
     }
 
     .proof-badge:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px) scale(1.05);
       background: var(--gray-700);
       border-color: var(--gray-600);
       box-shadow: var(--shadow-large);
+    }
+
+    .proof-badge:hover::before {
+      left: 100%;
     }
 
     /* Messages */
@@ -937,6 +1170,49 @@
       </div>
     </section>
 
+    <!-- White Mockup Section -->
+    <section class="mockup-section fade-in">
+      <div class="mockup-content">
+        <h2 class="mockup-title">Experience the Revolution</h2>
+        <p class="mockup-subtitle">
+          Witness how Ctrl+C transforms the mundane into the magical—where every interaction
+          feels intuitive, every function serves a purpose, and every moment sparks productivity.
+        </p>
+
+        <div class="mockup-grid">
+          <div class="mockup-card">
+            <div class="mockup-icon">🎯</div>
+            <h3 class="mockup-card-title">Precision Capture</h3>
+            <p class="mockup-card-description">
+              <span class="highlight-mockup">Every pixel tells a story</span>.
+              Our advanced algorithms understand context, extract meaning,
+              and preserve intention with surgical precision.
+            </p>
+          </div>
+
+          <div class="mockup-card">
+            <div class="mockup-icon">✨</div>
+            <h3 class="mockup-card-title">Intelligent Organization</h3>
+            <p class="mockup-card-description">
+              <span class="highlight-mockup">Chaos becomes clarity</span>.
+              Watch as your clipboard transforms into a beautifully
+              organized extension of your creative consciousness.
+            </p>
+          </div>
+
+          <div class="mockup-card">
+            <div class="mockup-icon">🚀</div>
+            <h3 class="mockup-card-title">Lightning Workflow</h3>
+            <p class="mockup-card-description">
+              <span class="highlight-mockup">Speed meets elegance</span>.
+              From capture to paste in milliseconds—because
+              your inspiration shouldn't wait for technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Features Section -->
     <section class="features fade-in">
       <div class="feature-card">
@@ -999,6 +1275,135 @@
   <script>
     // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger);
+
+    // Initialize Lenis for smooth scrolling
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+      smoothTouch: false,
+      touchMultiplier: 2
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Mouse-synchronized animations
+    class MouseInteractions {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        // Cursor follow effect
+        this.createCursor();
+
+        // Mouse parallax for cards
+        this.setupCardParallax();
+
+        // Magnetic buttons
+        this.setupMagneticButtons();
+      }
+
+      createCursor() {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        const cursorDot = document.createElement('div');
+        cursorDot.className = 'cursor-dot';
+        document.body.appendChild(cursorDot);
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let dotX = 0, dotY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
+
+        function updateCursor() {
+          cursorX += (mouseX - cursorX) * 0.1;
+          cursorY += (mouseY - cursorY) * 0.1;
+          dotX += (mouseX - dotX) * 0.3;
+          dotY += (mouseY - dotY) * 0.3;
+
+          cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+          cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0)`;
+
+          requestAnimationFrame(updateCursor);
+        }
+        updateCursor();
+      }
+
+      setupCardParallax() {
+        const cards = document.querySelectorAll('.feature-card, .mockup-card, .workflow-step');
+
+        cards.forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+
+            gsap.to(card, {
+              duration: 0.3,
+              rotateX: rotateX,
+              rotateY: rotateY,
+              transformPerspective: 1000,
+              ease: "power2.out"
+            });
+          });
+
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              duration: 0.5,
+              rotateX: 0,
+              rotateY: 0,
+              ease: "power2.out"
+            });
+          });
+        });
+      }
+
+      setupMagneticButtons() {
+        const buttons = document.querySelectorAll('.submit-btn, .header-badge, .hero-badge');
+
+        buttons.forEach(button => {
+          button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(button, {
+              duration: 0.3,
+              x: x * 0.3,
+              y: y * 0.3,
+              ease: "power2.out"
+            });
+          });
+
+          button.addEventListener('mouseleave', () => {
+            gsap.to(button, {
+              duration: 0.5,
+              x: 0,
+              y: 0,
+              ease: "elastic.out(1, 0.3)"
+            });
+          });
+        });
+      }
+    }
 
     // Form Handling
     class FormHandler {
@@ -1126,33 +1531,158 @@
       }
     }
 
-    // Scroll Animations
+    // Advanced Scroll Animations
     class ScrollAnimations {
       constructor() {
         this.init();
       }
 
       init() {
-        // Fade in elements on scroll
+        // Hero text reveal with split text animation
+        this.setupHeroAnimations();
+
+        // Advanced fade-in with scroll sync
+        this.setupScrollSyncAnimations();
+
+        // Parallax backgrounds
+        this.setupParallaxEffects();
+
+        // Feature cards with advanced stagger
+        this.setupFeatureAnimations();
+
+        // Mockup section animations
+        this.setupMockupAnimations();
+      }
+
+      setupHeroAnimations() {
+        const tl = gsap.timeline();
+
+        tl.fromTo('.hero-title', {
+          opacity: 0,
+          y: 100,
+          scale: 0.8
+        }, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "back.out(1.7)"
+        })
+        .fromTo('.hero-subtitle', {
+          opacity: 0,
+          y: 50
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        }, "-=0.6")
+        .fromTo('.cta-container', {
+          opacity: 0,
+          y: 30,
+          scale: 0.9
+        }, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          ease: "back.out(1.2)"
+        }, "-=0.4");
+      }
+
+      setupScrollSyncAnimations() {
         gsap.utils.toArray('.fade-in').forEach(element => {
           gsap.fromTo(element, {
             opacity: 0,
-            y: 50
+            y: 80,
+            scale: 0.95
           }, {
             opacity: 1,
             y: 0,
-            duration: 1,
-            ease: "power2.out",
+            scale: 1,
+            duration: 1.2,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: element,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse",
+              scrub: 0.5
             }
           });
         });
+      }
 
-        // Feature cards stagger animation
-        gsap.fromTo('.feature-card', {
+      setupParallaxEffects() {
+        // Background pattern parallax
+        gsap.to('.bg-canvas::before', {
+          yPercent: -50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: 'body',
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      }
+
+      setupFeatureAnimations() {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.features',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        tl.fromTo('.feature-card', {
+          opacity: 0,
+          y: 100,
+          scale: 0.8,
+          rotateY: 15
+        }, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotateY: 0,
+          duration: 1,
+          ease: "back.out(1.2)",
+          stagger: {
+            amount: 0.6,
+            from: "start"
+          }
+        });
+      }
+
+      setupMockupAnimations() {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.mockup-section',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        tl.fromTo('.mockup-title', {
+          opacity: 0,
+          y: 60
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        })
+        .fromTo('.mockup-subtitle', {
+          opacity: 0,
+          y: 40
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out"
+        }, "-=0.4")
+        .fromTo('.mockup-card', {
           opacity: 0,
           y: 80,
           scale: 0.9
@@ -1161,33 +1691,9 @@
           y: 0,
           scale: 1,
           duration: 0.8,
-          ease: "back.out(1.7)",
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: '.features',
-            start: "top 70%",
-            toggleActions: "play none none reverse"
-          }
-        });
-
-        // Workflow steps animation
-        gsap.fromTo('.workflow-step', {
-          opacity: 0,
-          y: 60,
-          scale: 0.9
-        }, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.3,
-          scrollTrigger: {
-            trigger: '.workflow-container',
-            start: "top 75%",
-            toggleActions: "play none none reverse"
-          }
-        });
+          ease: "back.out(1.3)",
+          stagger: 0.2
+        }, "-=0.2");
       }
     }
 
@@ -1196,12 +1702,74 @@
       alert('Privacy Policy:\n\nWe collect your email address solely to notify you when Ctrl+C becomes available. We never share your email with third parties or use it for marketing beyond product updates.\n\nCtrl+C itself processes all clipboard data locally on your device. We never have access to your clipboard content, ensuring complete privacy.\n\nFor questions, contact us at privacy@ctrlc.app');
     }
 
+    // Add custom cursor styles
+    const cursorStyles = document.createElement('style');
+    cursorStyles.textContent = `
+      .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background: rgba(0, 112, 243, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        mix-blend-mode: difference;
+      }
+
+      .cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        background: var(--white);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+      }
+
+      body {
+        cursor: none;
+      }
+
+      a, button, .feature-card, .mockup-card {
+        cursor: none;
+      }
+
+      /* Enhanced hover states */
+      .feature-card:hover, .mockup-card:hover, .workflow-step:hover {
+        border-color: var(--blue) !important;
+        box-shadow: 0 0 40px rgba(0, 112, 243, 0.3) !important;
+      }
+
+      @media (max-width: 768px) {
+        .custom-cursor, .cursor-dot {
+          display: none;
+        }
+
+        body {
+          cursor: auto;
+        }
+
+        .feature-card, .mockup-card, .workflow-step {
+          cursor: auto;
+        }
+      }
+    `;
+    document.head.appendChild(cursorStyles);
+
     // Initialize everything
     document.addEventListener('DOMContentLoaded', () => {
       new FormHandler();
       new AnimatedCounters();
       new ScrollAnimations();
+      new MouseInteractions();
     });
+
+    // Update ScrollTrigger on Lenis scroll
+    lenis.on('scroll', ScrollTrigger.update);
   </script>
 </body>
 </html>
