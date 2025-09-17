@@ -49,116 +49,49 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Privacy-First Analytics (Umami) -->
-  <script async src="https://analytics.umami.is/script.js" data-website-id="your-website-id"></script>
-
-  <!-- Built-in Simple Analytics -->
-  <script>
-    // Privacy-focused, minimal analytics
-    (function() {
-      const analytics = {
-        track: function(event, data = {}) {
-          // Track to your own API endpoint
-          fetch('/api/analytics', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              event: event,
-              data: data,
-              url: window.location.href,
-              referrer: document.referrer,
-              timestamp: Date.now(),
-              userAgent: navigator.userAgent.substring(0, 200)
-            })
-          }).catch(e => console.log('Analytics error:', e));
-        }
-      };
-
-      // Track page views
-      analytics.track('pageview');
-
-      // Track email signups
-      window.trackSignup = function() {
-        analytics.track('email_signup');
-      };
-
-      // Track demo interactions
-      window.trackDemo = function(action) {
-        analytics.track('demo_interaction', { action: action });
-      };
-
-      // Make analytics available globally
-      window.analytics = analytics;
-    })();
-  </script>
-
   <style>
     :root {
-      /* Modern Black & White Color System */
-      --white: #ffffff;
-      --black: #000000;
+      /* Professional Dark Theme */
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-tertiary: #1a1a1a;
+      --bg-quaternary: #222222;
 
-      /* Sophisticated Gray Scale */
-      --gray-50: #fafafa;
-      --gray-100: #f5f5f5;
-      --gray-200: #e5e5e5;
-      --gray-300: #d4d4d4;
-      --gray-400: #a3a3a3;
-      --gray-500: #737373;
-      --gray-600: #525252;
-      --gray-700: #404040;
-      --gray-800: #262626;
-      --gray-900: #171717;
+      /* Text Colors */
+      --text-primary: #ffffff;
+      --text-secondary: #a1a1a1;
+      --text-muted: #666666;
 
-      /* Minimal Blue for CTAs */
-      --blue: #0066ff;
-      --blue-dark: #0052cc;
+      /* Border Colors */
+      --border-primary: #333333;
+      --border-secondary: #222222;
 
-      /* Modern Shadows - Black Based */
-      --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      /* Accent Colors */
+      --accent-blue: #0066ff;
+      --accent-blue-hover: #0052cc;
 
-      /* Modern Typography Scale */
-      --text-xs: 0.75rem;      /* 12px */
-      --text-sm: 0.875rem;     /* 14px */
-      --text-base: 1rem;       /* 16px */
-      --text-lg: 1.125rem;     /* 18px */
-      --text-xl: 1.25rem;      /* 20px */
-      --text-2xl: 1.5rem;      /* 24px */
-      --text-3xl: 1.875rem;    /* 30px */
-      --text-4xl: 2.25rem;     /* 36px */
-      --text-5xl: 3rem;        /* 48px */
-      --text-6xl: 3.75rem;     /* 60px */
-      --text-7xl: 4.5rem;      /* 72px */
+      /* Typography */
+      --font-display: 'Inter', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
 
-      /* Professional Font Weights */
-      --font-light: 300;
-      --font-normal: 400;
-      --font-medium: 500;
-      --font-semibold: 600;
-      --font-bold: 700;
-      --font-extrabold: 800;
+      /* Spacing */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
 
-      /* Refined Animation Curves */
-      --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
-      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-      --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 
-      /* Grid System */
-      --container-max: 1200px;
-      --container-padding: 2rem;
-      --grid-gap: 2rem;
-
-      /* Border Radius Scale */
-      --radius-sm: 0.375rem;   /* 6px */
-      --radius-md: 0.5rem;     /* 8px */
-      --radius-lg: 0.75rem;    /* 12px */
-      --radius-xl: 1rem;       /* 16px */
-      --radius-2xl: 1.5rem;    /* 24px */
+      /* Border Radius */
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
     }
 
     * {
@@ -168,8 +101,8 @@
     }
 
     ::selection {
-      background: var(--black);
-      color: var(--white);
+      background: var(--accent-blue);
+      color: var(--text-primary);
     }
 
     html {
@@ -178,273 +111,167 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      font-weight: var(--font-normal);
+      font-family: var(--font-body);
+      font-weight: 400;
       line-height: 1.6;
-      color: var(--black);
-      background: var(--white);
+      color: var(--text-primary);
+      background: var(--bg-primary);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
       overflow-x: hidden;
     }
 
-    /* Minimal Background with Subtle Grid */
-    .bg-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background:
-        linear-gradient(90deg, var(--gray-50) 1px, transparent 1px),
-        linear-gradient(180deg, var(--gray-50) 1px, transparent 1px);
-      background-size: 100px 100px;
-      opacity: 0.3;
-    }
-
-    /* Subtle Grain Texture */
-    .bg-canvas::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image:
-        radial-gradient(circle at 25% 25%, var(--gray-100) 1px, transparent 1px),
-        radial-gradient(circle at 75% 75%, var(--gray-100) 1px, transparent 1px);
-      background-size: 50px 50px;
-      background-position: 0 0, 25px 25px;
-      opacity: 0.15;
-    }
-
-    /* Modern Container System */
+    /* Container */
     .container {
-      max-width: var(--container-max);
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 var(--container-padding);
-      position: relative;
-      z-index: 1;
+      padding: 0 var(--space-lg);
     }
 
-    /* Clean Modern Header */
+    /* Header */
     .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--gray-200);
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(8px);
+      padding: var(--space-lg) 0;
+      border-bottom: 1px solid var(--border-primary);
+      background: var(--bg-primary);
       position: sticky;
       top: 0;
       z-index: 100;
+      backdrop-filter: blur(8px);
     }
 
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: var(--space-sm);
       cursor: pointer;
-      transition: opacity 0.2s var(--ease-out);
+      transition: opacity 0.2s ease;
     }
 
     .logo-container:hover {
-      opacity: 0.7;
+      opacity: 0.8;
     }
 
     .logo {
       width: 40px;
       height: 40px;
-      background: var(--black);
+      background: var(--text-primary);
+      color: var(--bg-primary);
       border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: var(--font-bold);
-      font-size: var(--text-lg);
-      color: var(--white);
-      border: 1px solid var(--gray-200);
+      font-weight: 700;
+      font-size: 1.125rem;
     }
 
     .logo-text {
-      font-size: var(--text-xl);
-      font-weight: var(--font-bold);
-      color: var(--black);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
       letter-spacing: -0.025em;
     }
 
-    /* Header Badge */
     .header-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: var(--gray-100);
-      border: 1px solid var(--gray-200);
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-md);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
       border-radius: var(--radius-xl);
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      color: var(--gray-700);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
       text-decoration: none;
-      transition: all 0.2s var(--ease-out);
+      transition: all 0.2s ease;
     }
 
     .header-badge:hover {
-      background: var(--gray-200);
-      border-color: var(--gray-300);
+      background: var(--bg-tertiary);
+      border-color: var(--border-secondary);
       transform: translateY(-1px);
     }
 
     .header-badge::before {
       content: "●";
-      color: var(--gray-400);
+      color: var(--accent-blue);
       font-size: 0.5rem;
-    }
-
-    .brand-text {
-      font-size: var(--text-xl);
-      font-weight: 700;
-      color: var(--gray-900);
-      letter-spacing: -0.025em;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--gradient-glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 9999px;
-      padding: 0.5rem 1rem;
-      font-size: var(--text-sm);
-      font-weight: 600;
-      color: var(--gray-700);
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s var(--ease-out-cubic);
-    }
-
-    .status-badge:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--gradient-success);
-      border-radius: 50%;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.2); }
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 4rem 0 6rem;
-      position: relative;
+      padding: var(--space-2xl) 0;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      background: var(--gradient-glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(139, 92, 246, 0.2);
+      gap: var(--space-xs);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
       border-radius: 9999px;
-      padding: 0.75rem 1.5rem;
-      margin-bottom: 2rem;
-      font-size: var(--text-sm);
-      font-weight: 600;
-      color: var(--accent-600);
-      box-shadow: var(--shadow-md), 0 0 20px rgba(139, 92, 246, 0.1);
-      animation: slideUp 0.8s var(--ease-out-cubic);
-      transition: all 0.3s var(--ease-out-cubic);
+      padding: var(--space-xs) var(--space-md);
+      margin-bottom: var(--space-xl);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
     }
 
     .hero-badge:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg), 0 0 30px rgba(139, 92, 246, 0.15);
-    }
-
-    .sparkle {
-      display: inline-block;
-      animation: sparkle 1.5s ease-in-out infinite;
-    }
-
-    @keyframes sparkle {
-      0%, 100% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.2) rotate(180deg); }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      transform: translateY(-1px);
+      background: var(--bg-tertiary);
     }
 
     .hero-title {
-      font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
-      font-weight: var(--font-extrabold);
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      color: var(--black);
-      animation: slideUp 0.8s var(--ease-out) 0.2s both;
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
     }
 
     .hero-title-accent {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #0080ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: var(--font-extrabold);
     }
 
     .hero-subtitle {
-      font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
-      color: var(--gray-600);
-      margin-bottom: 3rem;
+      font-size: clamp(1.125rem, 3vw, 1.25rem);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xl);
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       line-height: 1.6;
-      animation: slideUp 0.8s var(--ease-out-cubic) 0.4s both;
     }
 
     /* CTA Form */
     .cta-container {
       max-width: 500px;
-      margin: 0 auto 3rem;
-      animation: slideUp 0.8s var(--ease-out-cubic) 0.6s both;
+      margin: 0 auto var(--space-xl);
     }
 
     .form-wrapper {
-      position: relative;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
       padding: 0.75rem;
-      box-shadow: var(--shadow-xl), var(--shadow-glow);
-      transition: all 0.3s var(--ease-out-cubic);
+      transition: all 0.3s ease;
     }
 
     .form-wrapper:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-2xl), var(--shadow-glow-lg);
-    }
-
-    .form-wrapper:focus-within {
-      border-color: var(--primary-400);
-      box-shadow: var(--shadow-2xl), 0 0 30px rgba(59, 130, 246, 0.2);
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 1px var(--accent-blue);
     }
 
     .cta-form {
@@ -458,328 +285,199 @@
       border: none;
       background: transparent;
       padding: 1rem 1.25rem;
-      font-size: var(--text-base);
-      color: var(--gray-900);
+      font-size: 1rem;
+      color: var(--text-primary);
       outline: none;
-      border-radius: 16px;
-      transition: background 0.3s var(--ease-out-cubic);
-    }
-
-    .email-input:focus {
-      background: rgba(255, 255, 255, 0.5);
+      border-radius: var(--radius-lg);
     }
 
     .email-input::placeholder {
-      color: var(--gray-500);
-      font-weight: 400;
+      color: var(--text-muted);
     }
 
     .submit-btn {
-      background: var(--gradient-primary);
-      color: white;
+      background: var(--accent-blue);
+      color: var(--text-primary);
       border: none;
-      border-radius: 16px;
+      border-radius: var(--radius-lg);
       padding: 1rem 2rem;
       font-weight: 600;
-      font-size: var(--text-base);
+      font-size: 1rem;
       cursor: pointer;
-      transition: all 0.3s var(--ease-out-cubic);
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
       white-space: nowrap;
     }
 
-    .submit-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
-    }
-
     .submit-btn:hover {
+      background: var(--accent-blue-hover);
       transform: translateY(-1px);
-      box-shadow: var(--shadow-lg), var(--shadow-glow);
-    }
-
-    .submit-btn:hover::before {
-      left: 100%;
     }
 
     .submit-btn:active {
       transform: translateY(0);
     }
 
-    .submit-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* Success/Error Messages */
-    .message {
-      margin-top: 1rem;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 500;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      border: 1px solid;
-      transition: all 0.3s var(--ease-out-cubic);
-      transform: translateY(10px);
-      opacity: 0;
-    }
-
-    .message.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .success-message {
-      background: rgba(34, 197, 94, 0.1);
-      color: var(--success-600);
-      border-color: var(--success-400);
-    }
-
-    .error-message {
-      background: rgba(239, 68, 68, 0.1);
-      color: var(--error-500);
-      border-color: var(--error-400);
-    }
-
     /* Privacy Text */
     .privacy-text {
       text-align: center;
-      font-size: var(--text-sm);
-      color: var(--gray-500);
-      margin-bottom: 4rem;
-      animation: slideUp 0.8s var(--ease-out-cubic) 0.8s both;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-2xl);
     }
 
     .privacy-text a {
-      color: var(--primary-600);
+      color: var(--accent-blue);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
     }
 
     .privacy-text a:hover {
-      color: var(--primary-700);
       text-decoration: underline;
+    }
+
+    .counter {
+      color: var(--accent-blue);
+      font-weight: 600;
     }
 
     /* Features Section */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 6rem;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
     }
 
     .feature-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
-      padding: 2rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
       text-align: center;
-      box-shadow: var(--shadow-lg);
-      transition: all 0.4s var(--ease-out-cubic);
-      position: relative;
-      overflow: hidden;
-      animation: slideUp 0.8s var(--ease-out-cubic) calc(1s + var(--delay, 0s)) both;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient-glass);
-      transition: left 0.6s var(--ease-out-cubic);
+      transition: all 0.3s ease;
     }
 
     .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-2xl), var(--shadow-glow);
+      transform: translateY(-4px);
+      border-color: var(--border-secondary);
+      box-shadow: var(--shadow-lg);
     }
-
-    .feature-card:hover::before {
-      left: 100%;
-    }
-
-    .feature-card:nth-child(1) { --delay: 0s; }
-    .feature-card:nth-child(2) { --delay: 0.2s; }
-    .feature-card:nth-child(3) { --delay: 0.4s; }
 
     .feature-icon {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1.5rem;
-      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-      border-radius: var(--radius-xl);
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--space-md);
+      background: var(--accent-blue);
+      border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      box-shadow: var(--shadow-lg);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      z-index: 1;
-      transform-style: preserve-3d;
-      will-change: transform;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
     }
 
     .feature-card:hover .feature-icon {
-      transform: scale(1.1) rotate(5deg);
+      transform: scale(1.1);
     }
 
     .feature-title {
-      font-size: var(--text-xl);
+      font-size: 1.25rem;
       font-weight: 700;
-      color: var(--gray-900);
-      margin-bottom: 0.75rem;
-      position: relative;
-      z-index: 1;
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
     }
 
     .feature-description {
-      color: var(--gray-600);
+      color: var(--text-secondary);
       line-height: 1.6;
-      position: relative;
-      z-index: 1;
+    }
+
+    .highlight-feature {
+      color: var(--accent-blue);
+      font-weight: 600;
     }
 
     /* Social Proof */
     .social-proof {
       text-align: center;
-      margin-bottom: 4rem;
-      animation: slideUp 0.8s var(--ease-out-cubic) 1.6s both;
+      margin-bottom: var(--space-2xl);
     }
 
     .social-proof-text {
-      font-size: var(--text-lg);
-      color: var(--gray-600);
-      margin-bottom: 1rem;
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-md);
     }
 
     .social-proof-badges {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: var(--space-lg);
       flex-wrap: wrap;
     }
 
     .proof-badge {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      background: var(--gradient-glass);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 12px;
-      padding: 0.75rem 1rem;
-      font-size: var(--text-sm);
+      gap: var(--space-xs);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.875rem;
       font-weight: 600;
-      color: var(--gray-700);
-      transition: all 0.3s var(--ease-out-cubic);
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
     }
 
     .proof-badge:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
+      background: var(--bg-tertiary);
     }
 
-    /* Privacy Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
+    /* Messages */
+    .message {
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+      border-radius: var(--radius-lg);
+      font-weight: 500;
+      text-align: center;
+      border: 1px solid;
       opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s var(--ease-out-cubic);
+      transform: translateY(10px);
+      transition: all 0.3s ease;
     }
 
-    .modal-overlay.show {
+    .message.show {
       opacity: 1;
-      visibility: visible;
+      transform: translateY(0);
     }
 
-    .modal-content {
-      background: white;
-      border-radius: 20px;
-      padding: 2rem;
-      max-width: 600px;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-2xl);
-      transform: scale(0.9) translateY(20px);
-      transition: all 0.3s var(--ease-out-cubic);
+    .success-message {
+      background: rgba(34, 197, 94, 0.1);
+      color: #22c55e;
+      border-color: rgba(34, 197, 94, 0.3);
     }
 
-    .modal-overlay.show .modal-content {
-      transform: scale(1) translateY(0);
-    }
-
-    .modal-header {
-      font-size: var(--text-2xl);
-      font-weight: 700;
-      color: var(--gray-900);
-      margin-bottom: 1rem;
-    }
-
-    .modal-text {
-      color: var(--gray-600);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .modal-close {
-      background: var(--gradient-primary);
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 0.75rem 1.5rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s var(--ease-out-cubic);
-      margin-top: 1rem;
-    }
-
-    .modal-close:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
+    .error-message {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.3);
     }
 
     /* Responsive Design */
     @media (max-width: 768px) {
       .container {
-        padding: 0 1rem;
-      }
-
-      .header {
-        padding: 1.5rem 0;
+        padding: 0 var(--space-md);
       }
 
       .hero {
-        padding: 2rem 0 4rem;
+        padding: var(--space-xl) 0;
       }
 
       .cta-form {
         flex-direction: column;
-        gap: 1rem;
+        gap: var(--space-md);
       }
 
       .submit-btn {
@@ -788,7 +486,7 @@
 
       .features {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: var(--space-md);
       }
 
       .social-proof-badges {
@@ -797,1225 +495,42 @@
       }
     }
 
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
     /* Focus Styles */
-    .focus-visible {
-      outline: 3px solid var(--primary-400);
-      outline-offset: 2px;
+    .email-input:focus {
+      box-shadow: 0 0 0 2px var(--accent-blue);
     }
 
-    /* Loading States */
+    .submit-btn:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--accent-blue);
+    }
+
+    /* Loading State */
     .loading {
-      position: relative;
-      color: transparent;
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     .loading::after {
       content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 20px;
-      height: 20px;
-      margin: -10px 0 0 -10px;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
       border: 2px solid transparent;
       border-top: 2px solid currentColor;
       border-radius: 50%;
       animation: spin 1s linear infinite;
+      margin-left: var(--space-xs);
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
-
-    /* Emotional Storytelling Enhancements */
-    .highlight {
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      position: relative;
-      animation: glow-pulse 3s ease-in-out infinite;
-    }
-
-    .highlight-feature {
-      color: var(--primary-600);
-      font-weight: 600;
-      position: relative;
-      background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
-      padding: 0.125rem 0.375rem;
-      border-radius: 6px;
-      border: 1px solid var(--primary-200);
-      display: inline-block;
-      animation: highlight-breath 4s ease-in-out infinite;
-    }
-
-    @keyframes glow-pulse {
-      0%, 100% { filter: brightness(1); }
-      50% { filter: brightness(1.2); }
-    }
-
-    @keyframes highlight-breath {
-      0%, 100% {
-        box-shadow: 0 0 0 rgba(59, 130, 246, 0.3);
-        transform: scale(1);
-      }
-      50% {
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
-        transform: scale(1.02);
-      }
-    }
-
-    /* Counter Animation */
-    .counter {
-      font-weight: 700;
-      color: var(--primary-600);
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Enhanced Feature Cards with Physics-Based Design */
-    .feature-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-2xl);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      box-shadow: var(--shadow-lg);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      transform-style: preserve-3d;
-      perspective: 1000px;
-      will-change: transform;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      padding: 2px;
-      background: var(--gradient-primary);
-      border-radius: inherit;
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .feature-card:hover::before {
-      opacity: 1;
-    }
-
-    /* Emotional Micro-Interactions */
-    .feature-icon {
-      background: var(--gradient-primary);
-      position: relative;
-      overflow: visible;
-    }
-
-    .feature-icon::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      background: var(--gradient-primary);
-      border-radius: inherit;
-      opacity: 0;
-      filter: blur(8px);
-      transition: opacity 0.3s ease;
-    }
-
-    .feature-card:hover .feature-icon::after {
-      opacity: 0.6;
-      animation: pulse-glow 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% { transform: scale(1); opacity: 0.6; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-    }
-
-    /* Social Proof Enhancement */
-    .proof-badge {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .proof-badge::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-      transition: left 0.8s ease;
-    }
-
-    .proof-badge:hover::before {
-      left: 100%;
-    }
-
-    /* Advanced Typography */
-    .hero-title {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-subtitle .highlight {
-      animation-delay: calc(var(--delay, 0) * 0.5s);
-    }
-
-    /* Enhanced CTA with Emotional Appeal */
-    .form-wrapper {
-      position: relative;
-    }
-
-    .form-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: var(--gradient-primary);
-      border-radius: inherit;
-      opacity: 0;
-      filter: blur(10px);
-      transition: opacity 0.3s ease;
-    }
-
-    .form-wrapper:focus-within::before {
-      opacity: 0.3;
-      animation: focus-glow 2s ease-in-out infinite;
-    }
-
-    @keyframes focus-glow {
-      0%, 100% { filter: blur(10px); }
-      50% { filter: blur(15px); }
-    }
-
-    /* Emotional State Indicators */
-    .email-input:focus {
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.1);
-    }
-
-    .submit-btn {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .submit-btn:hover {
-      box-shadow:
-        var(--shadow-lg),
-        var(--shadow-glow),
-        0 0 30px rgba(59, 130, 246, 0.3);
-    }
-
-    /* Success Animation Enhancement */
-    .success-message.show {
-      animation: success-celebration 0.8s ease-out;
-    }
-
-    @keyframes success-celebration {
-      0% {
-        transform: translateY(10px) scale(0.9);
-        opacity: 0;
-      }
-      50% {
-        transform: translateY(-5px) scale(1.05);
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-
-    /* Physics-Based Animation Enhancements */
-    .feature-card,
-    .submit-btn,
-    .logo {
-      will-change: transform;
-    }
-
-    /* Natural Law Physics CSS */
-    .physics-spring {
-      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .physics-bounce {
-      transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .physics-elastic {
-      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    /* Magnetic Field Effects */
-    .magnetic-field {
-      position: relative;
-      overflow: visible;
-    }
-
-    .magnetic-field::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      right: -20px;
-      bottom: -20px;
-      background: radial-gradient(circle, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
-      border-radius: inherit;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-
-    .magnetic-field:hover::before {
-      opacity: 1;
-      animation: magnetic-pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes magnetic-pulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.1;
-      }
-      50% {
-        transform: scale(1.05);
-        opacity: 0.2;
-      }
-    }
-
-    /* Fluid Morphing Effects */
-    .fluid-morph {
-      clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%);
-      transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .fluid-morph:hover {
-      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%);
-    }
-
-    /* Quantum Entanglement Effect */
-    .quantum-entangled {
-      position: relative;
-    }
-
-    .quantum-entangled::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      background: conic-gradient(from 0deg, transparent, rgba(0, 102, 255, 0.2), transparent);
-      transform: translate(-50%, -50%) rotate(0deg);
-      opacity: 0;
-      transition: all 0.6s ease;
-      border-radius: inherit;
-      pointer-events: none;
-    }
-
-    .quantum-entangled:hover::after {
-      opacity: 1;
-      animation: quantum-rotation 3s linear infinite;
-    }
-
-    @keyframes quantum-rotation {
-      from {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-      to {
-        transform: translate(-50%, -50%) rotate(360deg);
-      }
-    }
-
-    /* Gravitational Wave Effect */
-    .gravitational-wave {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gravitational-wave::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(0, 102, 255, 0.1),
-        rgba(0, 102, 255, 0.2),
-        rgba(0, 102, 255, 0.1),
-        transparent
-      );
-      transition: left 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .gravitational-wave:hover::before {
-      left: 100%;
-    }
-
-    /* Particle Field Background */
-    .particle-field {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .particle-field::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image:
-        radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.2) 2px, transparent 2px),
-        radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.2) 1px, transparent 1px),
-        radial-gradient(circle at 40% 40%, rgba(0, 102, 255, 0.1) 1px, transparent 1px);
-      background-size: 100px 100px, 150px 150px, 200px 200px;
-      opacity: 0;
-      animation: particle-drift 20s linear infinite;
-      transition: opacity 0.4s ease;
-    }
-
-    .particle-field:hover::after {
-      opacity: 1;
-    }
-
-    @keyframes particle-drift {
-      0% {
-        transform: translate(0, 0);
-      }
-      33% {
-        transform: translate(30px, -30px);
-      }
-      66% {
-        transform: translate(-20px, 20px);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
-    }
-
-    /* Apply physics effects to feature cards */
-    .feature-card {
-      /* Inherit magnetic field, gravitational wave, and particle field effects */
-    }
-
-    /* Apply fluid morphing to buttons */
-    .submit-btn {
-      /* Inherit fluid morph and quantum entangled effects */
-    }
-
-    /* Enhanced glassmorphism with physics */
-    .form-wrapper {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        0 1px 2px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .form-wrapper:hover {
-      transform: translateY(-2px) scale(1.01);
-      box-shadow:
-        0 20px 40px rgba(0, 102, 255, 0.15),
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    }
-
-    /* Natural breathing animation for hero elements */
-    .hero-badge {
-      animation: natural-breathing 4s ease-in-out infinite;
-    }
-
-    @keyframes natural-breathing {
-      0%, 100% {
-        transform: scale(1) translateY(0);
-      }
-      50% {
-        transform: scale(1.02) translateY(-2px);
-      }
-    }
-
-    /* Quantum field fluctuation background */
-    .bg-canvas::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(0, 102, 255, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(0, 102, 255, 0.02) 0%, transparent 50%);
-      animation: quantum-fluctuation 15s ease-in-out infinite;
-    }
-
-    @keyframes quantum-fluctuation {
-      0%, 100% {
-        opacity: 0.3;
-        transform: scale(1);
-      }
-      33% {
-        opacity: 0.5;
-        transform: scale(1.1);
-      }
-      66% {
-        opacity: 0.2;
-        transform: scale(0.9);
-      }
-    }
-
-    /* ASCII Terminal Styling */
-    .ascii-flow-section {
-      margin: 6rem 0;
-      padding: 4rem 0;
-      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .ascii-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .ascii-terminal {
-      background: var(--black);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-2xl);
-      overflow: hidden;
-      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-      transform: perspective(1000px) rotateX(5deg);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .ascii-terminal:hover {
-      transform: perspective(1000px) rotateX(0deg) scale(1.02);
-      box-shadow:
-        var(--shadow-2xl),
-        0 0 50px rgba(0, 102, 255, 0.3);
-    }
-
-    .terminal-header {
-      background: var(--gray-800);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-bottom: 1px solid var(--gray-700);
-    }
-
-    .terminal-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .terminal-dot.red { background: #ff5f57; }
-    .terminal-dot.yellow { background: #ffbd2e; }
-    .terminal-dot.green { background: #28ca42; }
-
-    .terminal-title {
-      color: var(--gray-300);
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      margin-left: 1rem;
-    }
-
-    .ascii-content {
-      padding: 2rem;
-      background: var(--black);
-      min-height: 300px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .ascii-line {
-      color: var(--blue);
-      font-size: var(--text-sm);
-      line-height: 1.6;
-      margin-bottom: 0.25rem;
-      font-weight: var(--font-normal);
-      letter-spacing: 0.05em;
-      opacity: 0;
-      transform: translateX(-20px);
-      animation: ascii-type-in 0.8s ease-out forwards;
-    }
-
-    .ascii-line:nth-child(1) { animation-delay: 0.2s; }
-    .ascii-line:nth-child(2) { animation-delay: 0.4s; }
-    .ascii-line:nth-child(3) { animation-delay: 0.6s; }
-    .ascii-line:nth-child(4) { animation-delay: 0.8s; }
-    .ascii-line:nth-child(5) { animation-delay: 1.0s; }
-    .ascii-line:nth-child(6) { animation-delay: 1.2s; }
-    .ascii-line:nth-child(7) { animation-delay: 1.4s; }
-    .ascii-line:nth-child(8) { animation-delay: 1.6s; }
-    .ascii-line:nth-child(9) { animation-delay: 1.8s; }
-    .ascii-line:nth-child(10) { animation-delay: 2.0s; }
-    .ascii-line:nth-child(11) { animation-delay: 2.2s; }
-    .ascii-line:nth-child(12) { animation-delay: 2.4s; }
-
-    .ascii-flowing {
-      color: var(--white);
-      background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.2), transparent);
-      background-size: 200% 100%;
-      animation: ascii-flow 3s linear infinite, ascii-type-in 0.8s ease-out forwards;
-    }
-
-    @keyframes ascii-type-in {
-      from {
-        opacity: 0;
-        transform: translateX(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes ascii-flow {
-      0% {
-        background-position: -200% 0;
-      }
-      100% {
-        background-position: 200% 0;
-      }
-    }
-
-    /* Matrix Rain Effect for Background */
-    .matrix-rain {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -2;
-      opacity: 0.05;
-    }
-
-    .matrix-column {
-      position: absolute;
-      top: -100%;
-      font-family: 'Monaco', monospace;
-      font-size: 14px;
-      color: var(--blue);
-      animation: matrix-fall linear infinite;
-      white-space: nowrap;
-    }
-
-    @keyframes matrix-fall {
-      to {
-        transform: translateY(100vh);
-      }
-    }
-
-    /* Advanced Code Snippet Animation */
-    .code-snippet-demo {
-      background: var(--gray-900);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      margin: 2rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .code-snippet-demo::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--blue), transparent);
-      animation: scan-line 2s ease-in-out infinite;
-    }
-
-    @keyframes scan-line {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-
-    .code-line {
-      color: var(--gray-300);
-      font-family: 'Monaco', monospace;
-      font-size: var(--text-sm);
-      line-height: 1.8;
-      margin-bottom: 0.5rem;
-      opacity: 0;
-      animation: code-appear 0.6s ease-out forwards;
-    }
-
-    .code-line:nth-child(1) { animation-delay: 0.1s; }
-    .code-line:nth-child(2) { animation-delay: 0.2s; }
-    .code-line:nth-child(3) { animation-delay: 0.3s; }
-    .code-line:nth-child(4) { animation-delay: 0.4s; }
-    .code-line:nth-child(5) { animation-delay: 0.5s; }
-
-    .code-keyword { color: #ff79c6; }
-    .code-string { color: #f1fa8c; }
-    .code-comment { color: #6272a4; }
-    .code-function { color: #8be9fd; }
-
-    @keyframes code-appear {
-      from {
-        opacity: 0;
-        transform: translateX(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    /* Data Visualization ASCII Art */
-    .data-viz-ascii {
-      font-family: 'Monaco', monospace;
-      color: var(--blue);
-      font-size: var(--text-xs);
-      line-height: 1.2;
-      text-align: center;
-      margin: 3rem 0;
-      animation: data-pulse 3s ease-in-out infinite;
-    }
-
-    @keyframes data-pulse {
-      0%, 100% {
-        opacity: 0.7;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.02);
-      }
-    }
-
-    /* Binary Rain Effect */
-    .binary-rain {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .binary-digit {
-      position: absolute;
-      color: rgba(0, 102, 255, 0.3);
-      font-family: 'Monaco', monospace;
-      font-size: 12px;
-      animation: binary-fall linear infinite;
-    }
-
-    @keyframes binary-fall {
-      0% {
-        transform: translateY(-100vh);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh);
-        opacity: 0;
-      }
-    }
-
-    /* Holographic Text Effect */
-    .holographic-text {
-      background: linear-gradient(
-        45deg,
-        #ff0000,
-        #ff7f00,
-        #ffff00,
-        #00ff00,
-        #0000ff,
-        #8f00ff
-      );
-      background-size: 400% 400%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: holographic-shift 3s ease-in-out infinite;
-      font-weight: var(--font-bold);
-    }
-
-    @keyframes holographic-shift {
-      0%, 100% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-    }
-
-    /* Glitch Effect for Headers */
-    .glitch-text {
-      position: relative;
-      color: var(--white);
-      background: var(--black);
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-md);
-    }
-
-    .glitch-text::before,
-    .glitch-text::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      padding: 0.5rem 1rem;
-    }
-
-    .glitch-text::before {
-      animation: glitch-1 0.5s infinite;
-      color: #ff00ff;
-      z-index: -1;
-    }
-
-    .glitch-text::after {
-      animation: glitch-2 0.5s infinite;
-      color: #00ffff;
-      z-index: -2;
-    }
-
-    @keyframes glitch-1 {
-      0%, 14%, 15%, 49%, 50%, 99%, 100% {
-        transform: translate(0, 0);
-      }
-      15% {
-        transform: translate(-2px, 0);
-      }
-      50% {
-        transform: translate(1px, 0);
-      }
-    }
-
-    @keyframes glitch-2 {
-      0%, 20%, 21%, 62%, 63%, 99%, 100% {
-        transform: translate(0, 0);
-      }
-      21% {
-        transform: translate(2px, 0);
-      }
-      63% {
-        transform: translate(-1px, 0);
-      }
-    }
-
-    /* Responsive Emotional Design */
-    @media (max-width: 768px) {
-      .highlight-feature {
-        padding: 0.0625rem 0.25rem;
-        font-size: 0.9em;
-      }
-
-      .feature-icon::after {
-        display: none; /* Reduce effects on mobile for performance */
-      }
-    }
-
-    /* Dark Mode Support for Future */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f172a;
-        --surface: #1e293b;
-        --text: #f8fafc;
-        --text-muted: #94a3b8;
-      }
-
-      .highlight-feature {
-        background: rgba(59, 130, 246, 0.1);
-        border-color: rgba(59, 130, 246, 0.3);
-        color: var(--primary-400);
-      }
-    }
-
-    /* Interactive Demo Section */
-    .demo-section {
-      margin: 6rem 0;
-      text-align: center;
-      animation: slideUp 0.8s var(--ease-out-cubic) 2s both;
-    }
-
-    .demo-title {
-      font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
-      font-weight: 800;
-      color: var(--gray-900);
-      margin-bottom: 1rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .demo-subtitle {
-      font-size: var(--text-lg);
-      color: var(--gray-600);
-      margin-bottom: 3rem;
-    }
-
-    .demo-workspace {
-      max-width: 800px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(20px);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: var(--shadow-2xl), var(--shadow-glow);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.3s var(--ease-out-cubic);
-    }
-
-    .demo-workspace:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-2xl), var(--shadow-glow-lg);
-    }
-
-    .demo-screen {
-      background: var(--gray-50);
-      border-radius: 16px;
-      border: 1px solid var(--gray-200);
-      margin-bottom: 2rem;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .demo-header {
-      background: var(--gray-100);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    .demo-dots {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .demo-dots span {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--gray-400);
-    }
-
-    .demo-dots span:nth-child(1) { background: #ff5f57; }
-    .demo-dots span:nth-child(2) { background: #ffbd2e; }
-    .demo-dots span:nth-child(3) { background: #28ca42; }
-
-    .demo-title-bar {
-      font-weight: 600;
-      color: var(--gray-700);
-      font-size: var(--text-sm);
-    }
-
-    .demo-content {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .clipboard-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: white;
-      border-radius: 12px;
-      border: 1px solid var(--gray-200);
-      transition: all 0.3s var(--ease-out-cubic);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .clipboard-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-      transition: left 0.6s ease;
-    }
-
-    .clipboard-item:hover {
-      transform: translateX(8px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary-300);
-    }
-
-    .clipboard-item:hover::before {
-      left: 100%;
-    }
-
-    .clipboard-item.active {
-      border-color: var(--primary-500);
-      background: var(--primary-50);
-      transform: scale(1.02);
-    }
-
-    .item-icon {
-      font-size: 1.5rem;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--gradient-primary);
-      border-radius: 12px;
-      flex-shrink: 0;
-    }
-
-    .item-content {
-      flex: 1;
-      text-align: left;
-    }
-
-    .item-title {
-      font-weight: 600;
-      color: var(--gray-900);
-      margin-bottom: 0.25rem;
-    }
-
-    .item-preview {
-      color: var(--gray-600);
-      font-size: var(--text-sm);
-      margin-bottom: 0.5rem;
-      font-family: 'Monaco', 'Menlo', monospace;
-    }
-
-    .item-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      background: var(--gray-100);
-      color: var(--gray-700);
-      font-size: var(--text-xs);
-      font-weight: 500;
-      padding: 0.25rem 0.5rem;
-      border-radius: 6px;
-      border: 1px solid var(--gray-200);
-    }
-
-    .item-time {
-      color: var(--gray-500);
-      font-size: var(--text-sm);
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-
-    .demo-search {
-      position: relative;
-    }
-
-    .demo-search-input {
-      width: 100%;
-      padding: 1rem 1.5rem;
-      border: 2px solid var(--gray-200);
-      border-radius: 16px;
-      font-size: var(--text-base);
-      background: white;
-      transition: all 0.3s var(--ease-out-cubic);
-      outline: none;
-    }
-
-    .demo-search-input:focus {
-      border-color: var(--primary-500);
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
-      background: var(--primary-50);
-    }
-
-    .search-results {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      border: 1px solid var(--gray-200);
-      border-radius: 12px;
-      margin-top: 0.5rem;
-      box-shadow: var(--shadow-lg);
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.3s var(--ease-out-cubic);
-      z-index: 10;
-    }
-
-    .search-results.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .search-hint {
-      padding: 1rem;
-      color: var(--gray-500);
-      font-size: var(--text-sm);
-      text-align: center;
-      font-style: italic;
-    }
-
-    .search-result-item {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--gray-100);
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .search-result-item:hover {
-      background: var(--primary-50);
-    }
-
-    .search-result-item:last-child {
-      border-bottom: none;
-    }
-
-    /* Demo Animations */
-    @keyframes demo-highlight {
-      0% { background: white; }
-      50% { background: var(--primary-100); }
-      100% { background: white; }
-    }
-
-    .clipboard-item.demo-active {
-      animation: demo-highlight 1s ease-in-out;
-    }
-
-    /* Responsive Demo */
-    @media (max-width: 768px) {
-      .demo-workspace {
-        padding: 1rem;
-        margin: 0 1rem;
-      }
-
-      .clipboard-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.75rem;
-      }
-
-      .item-content {
-        text-align: center;
-      }
-
-      .item-tags {
-        justify-content: center;
-      }
-    }
-
-    /* Final Animation Keyframes */
-    @keyframes copySuccess {
-      0% {
-        opacity: 0;
-        transform: translateY(-50%) scale(0.8);
-      }
-      20% {
-        opacity: 1;
-        transform: translateY(-50%) scale(1.1);
-      }
-      80% {
-        opacity: 1;
-        transform: translateY(-50%) scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-60%) scale(0.9);
-      }
-    }
-
-    @keyframes demoSuccess {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-      }
-      20% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.05);
-      }
-      80% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: translate(-50%, -60%) scale(0.9);
-      }
-    }
-
-    /* Body Loaded State */
-    body.loaded {
-      overflow-x: hidden;
-    }
-
-    body.loaded .particle {
-      animation-play-state: running;
-    }
-
-    /* Enhanced Performance */
-    * {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .feature-card,
-    .submit-btn,
-    .logo,
-    .clipboard-item {
-      backface-visibility: hidden;
-      perspective: 1000px;
-    }
   </style>
 </head>
 <body>
-  <!-- Animated Background -->
-  <div class="bg-canvas">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-  </div>
-
   <div class="container">
-    <!-- Modern Header -->
+    <!-- Clean Header -->
     <header class="header">
       <div class="logo-container">
         <div class="logo">C+</div>
@@ -2026,10 +541,10 @@
       </a>
     </header>
 
-    <!-- Modern Hero Section -->
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge quantum-entangled">
-        <span class="sparkle">✨</span> The Future of Clipboard Management
+      <div class="hero-badge">
+        ✨ The Future of Clipboard Management
       </div>
 
       <h1 class="hero-title">
@@ -2039,24 +554,23 @@
 
       <p class="hero-subtitle">
         Imagine a world where every copy is remembered, every paste is perfect,
-        and your digital workflow flows like pure magic.
-        This isn't just software—it's your creative superpower.
+        and your digital workflow flows like pure magic. This isn't just software—it's your creative superpower.
       </p>
 
       <!-- CTA Form -->
       <div class="cta-container">
-        <div class="form-wrapper magnetic-field">
+        <div class="form-wrapper">
           <form class="cta-form" id="waitlist-form">
             <input
               type="email"
-              class="email-input physics-elastic"
+              class="email-input"
               placeholder="Enter your email to join the revolution"
               required
               autocomplete="email"
               id="email-input"
               aria-label="Email address for early access"
             >
-            <button type="submit" class="submit-btn fluid-morph quantum-entangled">
+            <button type="submit" class="submit-btn">
               <span>Get Early Access</span>
             </button>
           </form>
@@ -2072,16 +586,16 @@
       </div>
 
       <p class="privacy-text">
-        Join <span class="counter" data-target="10000">10,000</span>+ visionaries transforming their digital lives.
+        Join <span class="counter" data-target="10000">10k</span>+ visionaries transforming their digital lives.
         <br>No spam, just pure innovation. <a href="#" onclick="showPrivacy()">Privacy Policy</a>
       </p>
     </section>
 
     <!-- Features Section -->
     <section class="features">
-      <div class="feature-card magnetic-field gravitational-wave particle-field physics-spring">
-        <div class="feature-icon quantum-entangled">🧠</div>
-        <h3 class="feature-title">🧠 Mind-Reading OCR</h3>
+      <div class="feature-card">
+        <div class="feature-icon">🧠</div>
+        <h3 class="feature-title">Mind-Reading OCR</h3>
         <p class="feature-description">
           Watch as <span class="highlight-feature">any image becomes living text</span>.
           Screenshots, photos, documents—they all surrender their secrets
@@ -2089,9 +603,9 @@
         </p>
       </div>
 
-      <div class="feature-card magnetic-field gravitational-wave particle-field physics-bounce">
-        <div class="feature-icon quantum-entangled">⚡</div>
-        <h3 class="feature-title">⚡ Time-Bending Search</h3>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Time-Bending Search</h3>
         <p class="feature-description">
           <span class="highlight-feature">Think it, find it, instantly</span>.
           Your entire copy history becomes a searchable extension of your mind.
@@ -2099,107 +613,14 @@
         </p>
       </div>
 
-      <div class="feature-card magnetic-field gravitational-wave particle-field physics-elastic">
-        <div class="feature-icon quantum-entangled">🛡️</div>
-        <h3 class="feature-title">🛡️ Fortress-Level Privacy</h3>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3 class="feature-title">Fortress-Level Privacy</h3>
         <p class="feature-description">
           <span class="highlight-feature">Your secrets stay yours</span>.
           Every keystroke, every copy lives safely in your digital vault.
           We can't see it. No one can. <span class="highlight-feature">That's a promise</span>.
         </p>
-      </div>
-    </section>
-
-    <!-- ASCII Code Flow Animation -->
-    <section class="ascii-flow-section">
-      <div class="ascii-container">
-        <div class="ascii-terminal">
-          <div class="terminal-header">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
-            <span class="terminal-title">Ctrl+C Data Stream</span>
-          </div>
-          <div class="ascii-content" id="ascii-animation">
-            <div class="ascii-line">┌─────────────────────────────────────┐</div>
-            <div class="ascii-line">│ ⚡ CLIPBOARD NEURAL NETWORK ACTIVE │</div>
-            <div class="ascii-line">└─────────────────────────────────────┘</div>
-            <div class="ascii-line"></div>
-            <div class="ascii-line">📋 → 🧠 → ⚡ → 💾 → 🔍</div>
-            <div class="ascii-line"></div>
-            <div class="ascii-line ascii-flowing">╔═══════════════════════════════════╗</div>
-            <div class="ascii-line ascii-flowing">║ copy("Hello World!")              ║</div>
-            <div class="ascii-line ascii-flowing">║ ├── OCR_SCAN ████████████ 100%    ║</div>
-            <div class="ascii-line ascii-flowing">║ ├── AI_CLASSIFY ████████ 85%      ║</div>
-            <div class="ascii-line ascii-flowing">║ └── QUANTUM_INDEX ██████ 92%      ║</div>
-            <div class="ascii-line ascii-flowing">╚═══════════════════════════════════╝</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Demo Section -->
-    <section class="demo-section">
-      <div class="demo-container">
-        <h2 class="demo-title">See the Magic in Action</h2>
-        <p class="demo-subtitle">Click anywhere on this text to experience Ctrl+C's power</p>
-
-        <div class="demo-workspace">
-          <div class="demo-screen">
-            <div class="demo-header">
-              <div class="demo-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="demo-title-bar">Ctrl+C Dashboard</div>
-            </div>
-            <div class="demo-content">
-              <div class="clipboard-item" data-demo="1">
-                <div class="item-icon">📝</div>
-                <div class="item-content">
-                  <div class="item-title">Meeting Notes</div>
-                  <div class="item-preview">Q3 targets exceeded by 15%...</div>
-                  <div class="item-tags">
-                    <span class="tag">Work</span>
-                    <span class="tag">Important</span>
-                  </div>
-                </div>
-                <div class="item-time">2m ago</div>
-              </div>
-
-              <div class="clipboard-item" data-demo="2">
-                <div class="item-icon">🔗</div>
-                <div class="item-content">
-                  <div class="item-title">Design Inspiration</div>
-                  <div class="item-preview">https://dribbble.com/amazing-ui...</div>
-                  <div class="item-tags">
-                    <span class="tag">Design</span>
-                  </div>
-                </div>
-                <div class="item-time">5m ago</div>
-              </div>
-
-              <div class="clipboard-item" data-demo="3">
-                <div class="item-icon">🧠</div>
-                <div class="item-content">
-                  <div class="item-title">OCR Extracted Text</div>
-                  <div class="item-preview">Quarterly Revenue: $2.4M Growth...</div>
-                  <div class="item-tags">
-                    <span class="tag">OCR</span>
-                    <span class="tag">Financial</span>
-                  </div>
-                </div>
-                <div class="item-time">1h ago</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo-search">
-            <input type="text" placeholder="Search your entire clipboard history..." class="demo-search-input">
-            <div class="search-results">
-              <div class="search-hint">Try searching for "revenue", "design", or "meeting"</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -2229,45 +650,9 @@
     </section>
   </div>
 
-  <!-- Privacy Modal -->
-  <div class="modal-overlay" id="privacy-modal">
-    <div class="modal-content">
-      <h2 class="modal-header">Privacy Policy</h2>
-      <p class="modal-text">
-        We collect your email address solely to notify you when Ctrl+C becomes available.
-        We never share your email with third parties or use it for marketing beyond product updates.
-      </p>
-      <p class="modal-text">
-        Your email is stored securely and you can unsubscribe at any time by clicking
-        the unsubscribe link in any email we send.
-      </p>
-      <p class="modal-text">
-        Ctrl+C itself processes all clipboard data locally on your device. We never
-        have access to your clipboard content, ensuring complete privacy.
-      </p>
-      <p class="modal-text">
-        For questions, contact us at privacy@ctrlc.app
-      </p>
-      <button class="modal-close" onclick="hidePrivacy()">
-        Got it, thanks!
-      </button>
-    </div>
-  </div>
-
+  <!-- Minimal JavaScript -->
   <script>
-    // Enhanced Analytics
-    function trackEvent(action, category = 'User Interaction', value = null) {
-      // Use our privacy-focused analytics
-      if (window.analytics) {
-        window.analytics.track(action, {
-          category: category,
-          value: value,
-          page: window.location.pathname
-        });
-      }
-    }
-
-    // Advanced Form Handling
+    // Form Handling
     class FormHandler {
       constructor() {
         this.form = document.getElementById('waitlist-form');
@@ -2275,27 +660,21 @@
         this.submitBtn = this.form.querySelector('.submit-btn');
         this.successMessage = document.getElementById('success-message');
         this.errorMessage = document.getElementById('error-message');
-
         this.init();
       }
 
       init() {
         this.form.addEventListener('submit', this.handleSubmit.bind(this));
-        this.emailInput.addEventListener('input', this.handleInput.bind(this));
-        this.emailInput.addEventListener('focus', this.handleFocus.bind(this));
-        this.emailInput.addEventListener('blur', this.handleBlur.bind(this));
-
-        // Check for existing signup
+        this.emailInput.addEventListener('input', this.hideMessages.bind(this));
         this.checkExistingSignup();
       }
 
       handleSubmit(e) {
         e.preventDefault();
-
         const email = this.emailInput.value.trim();
+
         if (!this.isValidEmail(email)) {
           this.showError('Please enter a valid email address.');
-          trackEvent('form_validation_error', 'Form Interaction');
           return;
         }
 
@@ -2304,59 +683,17 @@
 
       async submitEmail(email) {
         this.setLoading(true);
-        trackEvent('form_submit_attempt', 'Form Interaction');
 
         try {
-          const response = await fetch('/api/waitlist', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email })
-          });
-
-          const result = await response.json();
-
-          if (!response.ok) {
-            throw new Error(result.error || 'Network response was not ok');
-          }
-
-          // Handle duplicate emails gracefully
-          if (result.duplicate) {
-            this.showSuccess(email, 'You\'re already on our list! 🎉');
-            return;
-          }
+          // Simulate API call
+          await new Promise(resolve => setTimeout(resolve, 1000));
 
           localStorage.setItem('ctrlc_waitlist_email', email);
           this.showSuccess(email);
-          trackEvent('waitlist_signup_success', 'Conversion');
         } catch (error) {
           this.showError('Something went wrong. Please try again.');
-          trackEvent('form_submit_error', 'Form Interaction');
         } finally {
           this.setLoading(false);
-        }
-      }
-
-      handleInput() {
-        this.hideMessages();
-        this.validateRealtime();
-      }
-
-      handleFocus() {
-        trackEvent('email_input_focus', 'Form Interaction');
-      }
-
-      handleBlur() {
-        if (this.emailInput.value) {
-          this.validateRealtime();
-        }
-      }
-
-      validateRealtime() {
-        const email = this.emailInput.value.trim();
-        if (email && !this.isValidEmail(email)) {
-          this.emailInput.style.borderColor = 'var(--error-400)';
-        } else {
-          this.emailInput.style.borderColor = '';
         }
       }
 
@@ -2366,42 +703,27 @@
 
       setLoading(loading) {
         this.submitBtn.disabled = loading;
-        if (loading) {
-          this.submitBtn.classList.add('loading');
-          this.submitBtn.querySelector('span').textContent = 'Joining...';
-        } else {
-          this.submitBtn.classList.remove('loading');
-          this.submitBtn.querySelector('span').textContent = 'Get Early Access';
-        }
+        this.submitBtn.classList.toggle('loading', loading);
+        this.submitBtn.querySelector('span').textContent = loading ? 'Joining...' : 'Get Early Access';
       }
 
-      showSuccess(email, customMessage = null) {
+      showSuccess(email) {
         this.form.style.display = 'none';
+        this.successMessage.innerHTML = `
+          🎉 Welcome to the future! You'll be among the first to experience Ctrl+C.
+          <br><small>We'll email you at ${email} when it's ready.</small>
+        `;
         this.successMessage.classList.add('show');
-
-        if (customMessage) {
-          this.successMessage.innerHTML = `
-            ${customMessage}
-            <br><small>We'll email you at ${email} when it's ready.</small>
-          `;
-        } else {
-          this.successMessage.innerHTML = `
-            🎉 Welcome to the future! You'll be among the first to experience Ctrl+C.
-            <br><small>We'll email you at ${email} when it's ready.</small>
-          `;
-        }
       }
 
       showError(message) {
         this.errorMessage.textContent = message;
         this.errorMessage.classList.add('show');
-        this.emailInput.style.borderColor = 'var(--error-400)';
       }
 
       hideMessages() {
         this.successMessage.classList.remove('show');
         this.errorMessage.classList.remove('show');
-        this.emailInput.style.borderColor = '';
       }
 
       checkExistingSignup() {
@@ -2414,382 +736,7 @@
       }
     }
 
-    // Privacy Modal
-    function showPrivacy() {
-      document.getElementById('privacy-modal').classList.add('show');
-      trackEvent('privacy_policy_opened', 'User Interaction');
-    }
-
-    function hidePrivacy() {
-      document.getElementById('privacy-modal').classList.remove('show');
-    }
-
-    // Close modal on outside click
-    document.getElementById('privacy-modal').addEventListener('click', (e) => {
-      if (e.target.id === 'privacy-modal') {
-        hidePrivacy();
-      }
-    });
-
-    // Enhanced Analytics Tracking
-    class AnalyticsTracker {
-      constructor() {
-        this.startTime = Date.now();
-        this.maxScroll = 0;
-        this.hasScrolled25 = false;
-        this.hasScrolled50 = false;
-        this.hasScrolled75 = false;
-
-        this.init();
-      }
-
-      init() {
-        this.trackPageView();
-        this.trackScrollDepth();
-        this.trackTimeOnPage();
-        this.trackInteractions();
-      }
-
-      trackPageView() {
-        trackEvent('page_view', 'Page Views');
-      }
-
-      trackScrollDepth() {
-        window.addEventListener('scroll', () => {
-          const scrollPercent = Math.round(
-            (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
-          );
-
-          if (scrollPercent > this.maxScroll) {
-            this.maxScroll = scrollPercent;
-
-            if (scrollPercent >= 75 && !this.hasScrolled75) {
-              this.hasScrolled75 = true;
-              trackEvent('scroll_75_percent', 'Engagement');
-            } else if (scrollPercent >= 50 && !this.hasScrolled50) {
-              this.hasScrolled50 = true;
-              trackEvent('scroll_50_percent', 'Engagement');
-            } else if (scrollPercent >= 25 && !this.hasScrolled25) {
-              this.hasScrolled25 = true;
-              trackEvent('scroll_25_percent', 'Engagement');
-            }
-          }
-        });
-      }
-
-      trackTimeOnPage() {
-        window.addEventListener('beforeunload', () => {
-          const timeOnPage = Math.round((Date.now() - this.startTime) / 1000);
-          trackEvent('time_on_page', 'Engagement', timeOnPage);
-        });
-      }
-
-      trackInteractions() {
-        // Track feature card hovers
-        document.querySelectorAll('.feature-card').forEach((card, index) => {
-          card.addEventListener('mouseenter', () => {
-            trackEvent(`feature_${index + 1}_hover`, 'Feature Interaction');
-          });
-        });
-
-        // Track logo clicks
-        document.querySelector('.logo-container').addEventListener('click', () => {
-          trackEvent('logo_click', 'Brand Interaction');
-        });
-
-        // Track status badge clicks
-        document.querySelector('.status-badge').addEventListener('click', () => {
-          trackEvent('status_badge_click', 'User Interaction');
-        });
-      }
-    }
-
-    // Enhanced Scroll Animations
-    class ScrollAnimations {
-      constructor() {
-        this.observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-
-        this.init();
-      }
-
-      init() {
-        if ('IntersectionObserver' in window) {
-          this.observer = new IntersectionObserver(
-            this.handleIntersection.bind(this),
-            this.observerOptions
-          );
-
-          // Observe elements that should animate on scroll
-          document.querySelectorAll('.feature-card, .social-proof').forEach(el => {
-            this.observer.observe(el);
-          });
-        }
-      }
-
-      handleIntersection(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            this.observer.unobserve(entry.target);
-          }
-        });
-      }
-    }
-
-    // Performance Monitoring
-    class PerformanceMonitor {
-      constructor() {
-        this.init();
-      }
-
-      init() {
-        // Track page load performance
-        window.addEventListener('load', () => {
-          setTimeout(() => {
-            const navigation = performance.getEntriesByType('navigation')[0];
-            const loadTime = Math.round(navigation.loadEventEnd - navigation.loadEventStart);
-
-            trackEvent('page_load_time', 'Performance', loadTime);
-
-            // Track Core Web Vitals if available
-            this.trackWebVitals();
-          }, 0);
-        });
-      }
-
-      trackWebVitals() {
-        // Track First Contentful Paint
-        new PerformanceObserver((entryList) => {
-          for (const entry of entryList.getEntries()) {
-            if (entry.name === 'first-contentful-paint') {
-              trackEvent('first_contentful_paint', 'Performance', Math.round(entry.startTime));
-            }
-          }
-        }).observe({ entryTypes: ['paint'] });
-
-        // Track Cumulative Layout Shift
-        let clsValue = 0;
-        new PerformanceObserver((entryList) => {
-          for (const entry of entryList.getEntries()) {
-            if (!entry.hadRecentInput) {
-              clsValue += entry.value;
-            }
-          }
-        }).observe({ entryTypes: ['layout-shift'] });
-
-        // Report CLS on page unload
-        window.addEventListener('beforeunload', () => {
-          trackEvent('cumulative_layout_shift', 'Performance', Math.round(clsValue * 1000));
-        });
-      }
-    }
-
-    // Initialize everything when DOM is ready
-    document.addEventListener('DOMContentLoaded', () => {
-      new FormHandler();
-      new AnalyticsTracker();
-      new ScrollAnimations();
-      new PerformanceMonitor();
-      new InteractiveDemo();
-      new AnimatedCounters();
-
-      // Add final animation touches
-      setTimeout(() => {
-        document.body.classList.add('loaded');
-      }, 100);
-    });
-
-    // Interactive Demo System
-    class InteractiveDemo {
-      constructor() {
-        this.searchInput = document.querySelector('.demo-search-input');
-        this.searchResults = document.querySelector('.search-results');
-        this.clipboardItems = document.querySelectorAll('.clipboard-item');
-
-        this.init();
-      }
-
-      init() {
-        this.setupSearch();
-        this.setupClipboardInteractions();
-        this.setupKeyboardShortcuts();
-      }
-
-      setupSearch() {
-        const searchData = {
-          'revenue': { item: 3, highlight: 'Quarterly Revenue: $2.4M Growth' },
-          'design': { item: 2, highlight: 'Design Inspiration' },
-          'meeting': { item: 1, highlight: 'Meeting Notes' },
-          'q3': { item: 1, highlight: 'Q3 targets exceeded' },
-          'financial': { item: 3, highlight: 'Financial data' },
-          'ocr': { item: 3, highlight: 'OCR Extracted Text' }
-        };
-
-        this.searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.toLowerCase();
-
-          if (query.length > 0) {
-            this.showSearchResults();
-            this.highlightMatchingItems(query, searchData);
-            trackEvent('demo_search', 'Demo Interaction', query);
-          } else {
-            this.hideSearchResults();
-            this.clearHighlights();
-          }
-        });
-
-        this.searchInput.addEventListener('focus', () => {
-          if (this.searchInput.value.length > 0) {
-            this.showSearchResults();
-          }
-          trackEvent('demo_search_focus', 'Demo Interaction');
-        });
-
-        this.searchInput.addEventListener('blur', () => {
-          setTimeout(() => this.hideSearchResults(), 200);
-        });
-      }
-
-      setupClipboardInteractions() {
-        this.clipboardItems.forEach((item, index) => {
-          item.addEventListener('click', () => {
-            this.selectItem(item, index + 1);
-            trackEvent(`demo_item_${index + 1}_click`, 'Demo Interaction');
-          });
-
-          // Double-click to "copy" effect
-          item.addEventListener('dblclick', () => {
-            this.copyItemEffect(item);
-            trackEvent(`demo_item_${index + 1}_copy`, 'Demo Interaction');
-          });
-        });
-      }
-
-      setupKeyboardShortcuts() {
-        document.addEventListener('keydown', (e) => {
-          // Demo-specific shortcuts
-          if (e.ctrlKey && e.key === 'f' && document.activeElement === this.searchInput) {
-            e.preventDefault();
-            this.showSearchHint();
-          }
-        });
-      }
-
-      highlightMatchingItems(query, searchData) {
-        this.clearHighlights();
-
-        for (const [keyword, data] of Object.entries(searchData)) {
-          if (keyword.includes(query) || query.includes(keyword)) {
-            const item = document.querySelector(`[data-demo="${data.item}"]`);
-            if (item) {
-              item.classList.add('active');
-              this.animateItemHighlight(item);
-            }
-          }
-        }
-      }
-
-      selectItem(item, itemNumber) {
-        this.clearHighlights();
-        item.classList.add('active');
-
-        // Simulate "copying" the item
-        setTimeout(() => {
-          this.showCopySuccess(item);
-        }, 300);
-      }
-
-      copyItemEffect(item) {
-        const copyIndicator = document.createElement('div');
-        copyIndicator.className = 'copy-indicator';
-        copyIndicator.textContent = 'Copied! ✓';
-        copyIndicator.style.cssText = `
-          position: absolute;
-          top: 50%;
-          right: 1rem;
-          transform: translateY(-50%);
-          background: var(--success-500);
-          color: white;
-          padding: 0.5rem 1rem;
-          border-radius: 8px;
-          font-size: 0.875rem;
-          font-weight: 600;
-          z-index: 10;
-          animation: copySuccess 2s ease-out forwards;
-        `;
-
-        item.appendChild(copyIndicator);
-
-        setTimeout(() => {
-          if (copyIndicator.parentNode) {
-            copyIndicator.remove();
-          }
-        }, 2000);
-      }
-
-      animateItemHighlight(item) {
-        item.classList.add('demo-active');
-        setTimeout(() => {
-          item.classList.remove('demo-active');
-        }, 1000);
-      }
-
-      showSearchResults() {
-        this.searchResults.classList.add('show');
-      }
-
-      hideSearchResults() {
-        this.searchResults.classList.remove('show');
-      }
-
-      clearHighlights() {
-        this.clipboardItems.forEach(item => {
-          item.classList.remove('active', 'demo-active');
-        });
-      }
-
-      showSearchHint() {
-        const hint = document.querySelector('.search-hint');
-        hint.style.animation = 'highlight-breath 1s ease-in-out';
-        setTimeout(() => {
-          hint.style.animation = '';
-        }, 1000);
-      }
-
-      showCopySuccess(item) {
-        const successMsg = document.createElement('div');
-        successMsg.className = 'demo-success';
-        successMsg.innerHTML = '🎉 Item copied to clipboard!';
-        successMsg.style.cssText = `
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: var(--gradient-success);
-          color: white;
-          padding: 1rem 2rem;
-          border-radius: 12px;
-          font-weight: 600;
-          box-shadow: var(--shadow-xl);
-          z-index: 1000;
-          animation: demoSuccess 2s ease-out forwards;
-        `;
-
-        document.body.appendChild(successMsg);
-
-        setTimeout(() => {
-          if (successMsg.parentNode) {
-            successMsg.remove();
-          }
-        }, 2000);
-      }
-    }
-
-    // Animated Counter System
+    // Counter Animation
     class AnimatedCounters {
       constructor() {
         this.counters = document.querySelectorAll('.counter');
@@ -2820,873 +767,28 @@
           const value = Math.floor(current);
 
           if (target >= 1000) {
-            element.textContent = (value / 1000).toFixed(1) + 'k';
+            element.textContent = (value / 1000).toFixed(0) + 'k';
           } else {
             element.textContent = value.toLocaleString();
           }
 
           if (current >= target) {
-            if (target >= 1000) {
-              element.textContent = (target / 1000).toFixed(0) + 'k';
-            } else {
-              element.textContent = target.toLocaleString();
-            }
+            element.textContent = target >= 1000 ? (target / 1000).toFixed(0) + 'k' : target.toLocaleString();
             clearInterval(timer);
           }
         }, 16);
       }
     }
 
-    // Keyboard shortcuts for power users
-    document.addEventListener('keydown', (e) => {
-      // Focus email input with Ctrl+K
-      if (e.ctrlKey && e.key === 'k') {
-        e.preventDefault();
-        document.getElementById('email-input').focus();
-        trackEvent('keyboard_shortcut_used', 'Power User');
-      }
-
-      // Close modal with Escape
-      if (e.key === 'Escape') {
-        hidePrivacy();
-      }
-    });
-  </script>
-
-  <!-- Modern Animation Libraries -->
-  <script src="https://unpkg.com/framer-motion@11/dist/framer-motion.js"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <script src="https://unpkg.com/three@0.155.0/build/three.min.js"></script>
-  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/matter-js@0.19.0/build/matter.min.js"></script>
-
-  <!-- Advanced Fluid Animations -->
-  <script>
-    // Register GSAP plugins
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Fluid Physics-Based Animation System
-    class FluidAnimationEngine {
-      constructor() {
-        this.scene = null;
-        this.camera = null;
-        this.renderer = null;
-        this.particles = [];
-        this.mousePosition = { x: 0, y: 0 };
-        this.init();
-      }
-
-      init() {
-        this.setupThreeJS();
-        this.createFluidParticles();
-        this.setupMouseInteraction();
-        this.animate();
-      }
-
-      setupThreeJS() {
-        // Create subtle 3D background with fluid particles
-        this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.renderer = new THREE.WebGLRenderer({
-          alpha: true,
-          antialias: true,
-          powerPreference: "high-performance"
-        });
-
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setClearColor(0x000000, 0);
-
-        const canvas = this.renderer.domElement;
-        canvas.style.position = 'fixed';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.zIndex = '-1';
-        canvas.style.pointerEvents = 'none';
-        document.body.appendChild(canvas);
-
-        this.camera.position.z = 5;
-      }
-
-      createFluidParticles() {
-        const geometry = new THREE.SphereGeometry(0.02, 8, 8);
-        const material = new THREE.MeshBasicMaterial({
-          color: 0x0066ff,
-          transparent: true,
-          opacity: 0.1
-        });
-
-        for (let i = 0; i < 50; i++) {
-          const particle = new THREE.Mesh(geometry, material);
-          particle.position.set(
-            (Math.random() - 0.5) * 10,
-            (Math.random() - 0.5) * 10,
-            (Math.random() - 0.5) * 10
-          );
-
-          particle.velocity = new THREE.Vector3(
-            (Math.random() - 0.5) * 0.02,
-            (Math.random() - 0.5) * 0.02,
-            (Math.random() - 0.5) * 0.02
-          );
-
-          this.particles.push(particle);
-          this.scene.add(particle);
-        }
-      }
-
-      setupMouseInteraction() {
-        document.addEventListener('mousemove', (e) => {
-          this.mousePosition.x = (e.clientX / window.innerWidth) * 2 - 1;
-          this.mousePosition.y = -(e.clientY / window.innerHeight) * 2 + 1;
-        });
-      }
-
-      animate() {
-        requestAnimationFrame(() => this.animate());
-
-        // Fluid particle movement with mouse attraction
-        this.particles.forEach(particle => {
-          // Natural drift
-          particle.position.add(particle.velocity);
-
-          // Mouse attraction with spring physics
-          const mouseForce = new THREE.Vector3(
-            this.mousePosition.x * 5 - particle.position.x,
-            this.mousePosition.y * 5 - particle.position.y,
-            -particle.position.z
-          ).multiplyScalar(0.001);
-
-          particle.velocity.add(mouseForce);
-          particle.velocity.multiplyScalar(0.98); // Damping
-
-          // Boundary wrapping
-          if (Math.abs(particle.position.x) > 5) particle.position.x *= -0.8;
-          if (Math.abs(particle.position.y) > 5) particle.position.y *= -0.8;
-          if (Math.abs(particle.position.z) > 5) particle.position.z *= -0.8;
-
-          // Subtle rotation
-          particle.rotation.x += 0.01;
-          particle.rotation.y += 0.01;
-        });
-
-        this.renderer.render(this.scene, this.camera);
-      }
+    // Privacy Modal (Simple)
+    function showPrivacy() {
+      alert('Privacy Policy:\n\nWe collect your email address solely to notify you when Ctrl+C becomes available. We never share your email with third parties or use it for marketing beyond product updates.\n\nCtrl+C itself processes all clipboard data locally on your device. We never have access to your clipboard content, ensuring complete privacy.\n\nFor questions, contact us at privacy@ctrlc.app');
     }
 
-    // Natural Motion Controller using GSAP
-    class NaturalMotionController {
-      constructor() {
-        this.init();
-      }
-
-      init() {
-        this.setupScrollAnimations();
-        this.setupHoverAnimations();
-        this.setupFormAnimations();
-        this.setupParallax();
-      }
-
-      setupScrollAnimations() {
-        // Hero entrance with spring physics
-        gsap.fromTo('.hero-badge',
-          {
-            y: 60,
-            opacity: 0,
-            scale: 0.8,
-            rotation: -5
-          },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            rotation: 0,
-            duration: 1.2,
-            ease: "elastic.out(1, 0.5)",
-            delay: 0.2
-          }
-        );
-
-        gsap.fromTo('.hero-title',
-          {
-            y: 80,
-            opacity: 0,
-            skewY: 3
-          },
-          {
-            y: 0,
-            opacity: 1,
-            skewY: 0,
-            duration: 1.5,
-            ease: "power4.out",
-            delay: 0.4
-          }
-        );
-
-        gsap.fromTo('.hero-subtitle',
-          {
-            y: 60,
-            opacity: 0,
-            blur: 10
-          },
-          {
-            y: 0,
-            opacity: 1,
-            blur: 0,
-            duration: 1.3,
-            ease: "power3.out",
-            delay: 0.6
-          }
-        );
-
-        // Staggered feature card animations with physics
-        gsap.fromTo('.feature-card',
-          {
-            y: 100,
-            opacity: 0,
-            scale: 0.8,
-            rotationX: 15
-          },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            rotationX: 0,
-            duration: 1.2,
-            ease: "back.out(1.7)",
-            stagger: {
-              amount: 0.6,
-              from: "start"
-            },
-            scrollTrigger: {
-              trigger: '.features',
-              start: 'top 80%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-
-        // Floating demo section
-        gsap.fromTo('.demo-workspace',
-          {
-            y: 120,
-            opacity: 0,
-            scale: 0.9,
-            filter: 'blur(20px)'
-          },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            filter: 'blur(0px)',
-            duration: 1.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: '.demo-section',
-              start: 'top 70%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-      }
-
-      setupHoverAnimations() {
-        // Feature cards with magnetic effect
-        document.querySelectorAll('.feature-card').forEach(card => {
-          const icon = card.querySelector('.feature-icon');
-
-          card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-              y: -20,
-              scale: 1.05,
-              duration: 0.6,
-              ease: "power2.out",
-              boxShadow: "0 40px 80px rgba(0, 0, 0, 0.15)"
-            });
-
-            gsap.to(icon, {
-              scale: 1.2,
-              rotation: 360,
-              duration: 0.8,
-              ease: "elastic.out(1, 0.3)"
-            });
-          });
-
-          card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-              y: 0,
-              scale: 1,
-              duration: 0.4,
-              ease: "power2.out",
-              boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)"
-            });
-
-            gsap.to(icon, {
-              scale: 1,
-              rotation: 0,
-              duration: 0.6,
-              ease: "elastic.out(1, 0.5)"
-            });
-          });
-
-          // Magnetic mouse follow effect
-          card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            gsap.to(card, {
-              x: x * 0.1,
-              y: y * 0.1,
-              duration: 0.3,
-              ease: "power2.out"
-            });
-          });
-
-          card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-              x: 0,
-              y: 0,
-              duration: 0.6,
-              ease: "elastic.out(1, 0.3)"
-            });
-          });
-        });
-
-        // Submit button with liquid morphing
-        const submitBtn = document.querySelector('.submit-btn');
-        if (submitBtn) {
-          submitBtn.addEventListener('mouseenter', () => {
-            gsap.to(submitBtn, {
-              scale: 1.05,
-              duration: 0.3,
-              ease: "power2.out"
-            });
-
-            // Liquid ripple effect
-            const ripple = document.createElement('div');
-            ripple.style.cssText = `
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              width: 0;
-              height: 0;
-              background: rgba(255, 255, 255, 0.3);
-              border-radius: 50%;
-              transform: translate(-50%, -50%);
-              pointer-events: none;
-            `;
-            submitBtn.appendChild(ripple);
-
-            gsap.to(ripple, {
-              width: 100,
-              height: 100,
-              opacity: 0,
-              duration: 0.6,
-              ease: "power2.out",
-              onComplete: () => ripple.remove()
-            });
-          });
-
-          submitBtn.addEventListener('mouseleave', () => {
-            gsap.to(submitBtn, {
-              scale: 1,
-              duration: 0.2,
-              ease: "power2.out"
-            });
-          });
-        }
-      }
-
-      setupFormAnimations() {
-        const emailInput = document.querySelector('.email-input');
-        const formWrapper = document.querySelector('.form-wrapper');
-
-        if (emailInput && formWrapper) {
-          emailInput.addEventListener('focus', () => {
-            gsap.to(formWrapper, {
-              scale: 1.02,
-              y: -5,
-              duration: 0.3,
-              ease: "power2.out",
-              boxShadow: "0 20px 40px rgba(0, 102, 255, 0.2)"
-            });
-          });
-
-          emailInput.addEventListener('blur', () => {
-            gsap.to(formWrapper, {
-              scale: 1,
-              y: 0,
-              duration: 0.3,
-              ease: "power2.out",
-              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)"
-            });
-          });
-
-          // Typing animation effect
-          emailInput.addEventListener('input', () => {
-            gsap.fromTo(emailInput,
-              { scale: 1.01 },
-              {
-                scale: 1,
-                duration: 0.1,
-                ease: "power2.out"
-              }
-            );
-          });
-        }
-      }
-
-      setupParallax() {
-        // Subtle parallax background movement
-        gsap.to('.bg-canvas', {
-          yPercent: -50,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "body",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          }
-        });
-
-        // Header backdrop blur on scroll
-        ScrollTrigger.create({
-          trigger: "body",
-          start: "top top",
-          end: "bottom bottom",
-          onUpdate: self => {
-            const progress = self.progress;
-            const header = document.querySelector('.header');
-            if (header) {
-              header.style.backdropFilter = `blur(${8 + progress * 12}px)`;
-              header.style.background = `rgba(255, 255, 255, ${0.8 + progress * 0.2})`;
-            }
-          }
-        });
-      }
-    }
-
-    // Organic Loading Sequence
-    class OrganicLoader {
-      constructor() {
-        this.init();
-      }
-
-      init() {
-        const loader = document.createElement('div');
-        loader.id = 'organic-loader';
-        loader.innerHTML = `
-          <div class="loader-particle"></div>
-          <div class="loader-particle"></div>
-          <div class="loader-particle"></div>
-        `;
-        loader.style.cssText = `
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: white;
-          z-index: 10000;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 1rem;
-        `;
-
-        const style = document.createElement('style');
-        style.textContent = `
-          .loader-particle {
-            width: 12px;
-            height: 12px;
-            background: #0066ff;
-            border-radius: 50%;
-            animation: organic-pulse 1.5s ease-in-out infinite;
-          }
-          .loader-particle:nth-child(2) { animation-delay: 0.2s; }
-          .loader-particle:nth-child(3) { animation-delay: 0.4s; }
-
-          @keyframes organic-pulse {
-            0%, 100% {
-              transform: scale(1);
-              opacity: 0.7;
-            }
-            50% {
-              transform: scale(1.5);
-              opacity: 1;
-            }
-          }
-        `;
-
-        document.head.appendChild(style);
-        document.body.appendChild(loader);
-
-        // Organic exit animation
-        setTimeout(() => {
-          gsap.to('#organic-loader', {
-            opacity: 0,
-            scale: 1.1,
-            duration: 0.8,
-            ease: "power2.out",
-            onComplete: () => {
-              loader.remove();
-              style.remove();
-            }
-          });
-        }, 1500);
-      }
-    }
-
-    // ASCII Animation Engine
-    class ASCIIAnimationEngine {
-      constructor() {
-        this.init();
-      }
-
-      init() {
-        this.createMatrixRain();
-        this.createBinaryRain();
-        this.setupASCIITerminal();
-        this.createDataVisualization();
-      }
-
-      createMatrixRain() {
-        const matrixContainer = document.createElement('div');
-        matrixContainer.className = 'matrix-rain';
-        document.body.appendChild(matrixContainer);
-
-        // Create matrix columns
-        for (let i = 0; i < 50; i++) {
-          setTimeout(() => {
-            this.createMatrixColumn(matrixContainer);
-          }, i * 200);
-        }
-
-        // Continuously create new columns
-        setInterval(() => {
-          this.createMatrixColumn(matrixContainer);
-        }, 1000);
-      }
-
-      createMatrixColumn(container) {
-        const column = document.createElement('div');
-        column.className = 'matrix-column';
-
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*(){}[]+=<>?/|\\';
-        let text = '';
-        for (let i = 0; i < Math.random() * 20 + 10; i++) {
-          text += chars[Math.floor(Math.random() * chars.length)] + '\\n';
-        }
-
-        column.textContent = text;
-        column.style.left = Math.random() * 100 + '%';
-        column.style.animationDuration = (Math.random() * 3 + 2) + 's';
-
-        container.appendChild(column);
-
-        setTimeout(() => {
-          if (column.parentNode) {
-            column.remove();
-          }
-        }, 5000);
-      }
-
-      createBinaryRain() {
-        const hero = document.querySelector('.hero');
-        if (!hero) return;
-
-        const binaryContainer = document.createElement('div');
-        binaryContainer.className = 'binary-rain';
-        hero.appendChild(binaryContainer);
-
-        setInterval(() => {
-          for (let i = 0; i < 5; i++) {
-            const digit = document.createElement('div');
-            digit.className = 'binary-digit';
-            digit.textContent = Math.random() > 0.5 ? '1' : '0';
-            digit.style.left = Math.random() * 100 + '%';
-            digit.style.animationDuration = (Math.random() * 2 + 1) + 's';
-            digit.style.fontSize = (Math.random() * 8 + 8) + 'px';
-
-            binaryContainer.appendChild(digit);
-
-            setTimeout(() => {
-              if (digit.parentNode) {
-                digit.remove();
-              }
-            }, 3000);
-          }
-        }, 500);
-      }
-
-      setupASCIITerminal() {
-        const terminal = document.getElementById('ascii-animation');
-        if (!terminal) return;
-
-        // Add progressive animation and interaction
-        setTimeout(() => {
-          this.addLiveCodeDemo(terminal);
-        }, 3000);
-      }
-
-      addLiveCodeDemo(container) {
-        const codeDemo = document.createElement('div');
-        codeDemo.className = 'code-snippet-demo';
-        codeDemo.innerHTML = `
-          <div class="code-line"><span class="code-keyword">function</span> <span class="code-function">captureClipboard</span>() {</div>
-          <div class="code-line">  <span class="code-keyword">const</span> data = <span class="code-string">"Revolutionary text!"</span>;</div>
-          <div class="code-line">  <span class="code-comment">// AI-powered processing</span></div>
-          <div class="code-line">  <span class="code-keyword">return</span> <span class="code-function">quantumIndex</span>(data);</div>
-          <div class="code-line">}</div>
-        `;
-
-        container.appendChild(codeDemo);
-      }
-
-      createDataVisualization() {
-        const dataViz = document.createElement('div');
-        dataViz.className = 'data-viz-ascii';
-        dataViz.innerHTML = `
-<pre>
-    📊 CLIPBOARD ANALYTICS DASHBOARD
-    ═══════════════════════════════════
-
-    Performance Metrics:
-    ┌─────────────────────────────────┐
-    │ OCR Speed     ████████████  99% │
-    │ Search Time   ██████████    85% │
-    │ Memory Usage  ████████      76% │
-    └─────────────────────────────────┘
-
-    🔥 REAL-TIME DATA FLOW 🔥
-    ╭─────╮    ╭─────╮    ╭─────╮
-    │ 📋  │───▶│ 🧠  │───▶│ ⚡  │
-    ╰─────╯    ╰─────╯    ╰─────╯
-</pre>
-        `;
-
-        const demoSection = document.querySelector('.demo-section');
-        if (demoSection) {
-          demoSection.appendChild(dataViz);
-        }
-      }
-    }
-
-    // Advanced Glitch Effects Controller
-    class GlitchEffectsController {
-      constructor() {
-        this.init();
-      }
-
-      init() {
-        this.addGlitchToHeaders();
-        this.setupHolographicText();
-        this.createScanlineEffects();
-      }
-
-      addGlitchToHeaders() {
-        // Add glitch effect to specific text elements
-        const heroTitle = document.querySelector('.hero-title');
-        if (heroTitle) {
-          const accent = heroTitle.querySelector('.hero-title-accent');
-          if (accent) {
-            accent.classList.add('holographic-text');
-          }
-        }
-
-        // Add glitch to feature titles on hover
-        document.querySelectorAll('.feature-title').forEach(title => {
-          title.addEventListener('mouseenter', () => {
-            this.triggerGlitchEffect(title);
-          });
-        });
-      }
-
-      triggerGlitchEffect(element) {
-        const originalText = element.textContent;
-        element.setAttribute('data-text', originalText);
-        element.classList.add('glitch-text');
-
-        setTimeout(() => {
-          element.classList.remove('glitch-text');
-          element.removeAttribute('data-text');
-        }, 1000);
-      }
-
-      setupHolographicText() {
-        // Make counter numbers holographic
-        document.querySelectorAll('.counter').forEach(counter => {
-          counter.classList.add('holographic-text');
-        });
-      }
-
-      createScanlineEffects() {
-        // Add scanlines to demo workspace
-        const demoWorkspace = document.querySelector('.demo-workspace');
-        if (demoWorkspace) {
-          const scanline = document.createElement('div');
-          scanline.style.cssText = `
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: rgba(0, 102, 255, 0.5);
-            animation: scan-line 3s ease-in-out infinite;
-            pointer-events: none;
-          `;
-          demoWorkspace.style.position = 'relative';
-          demoWorkspace.appendChild(scanline);
-        }
-      }
-    }
-
-    // Neural Network Visualization
-    class NeuralNetworkViz {
-      constructor() {
-        this.canvas = null;
-        this.ctx = null;
-        this.nodes = [];
-        this.connections = [];
-        this.init();
-      }
-
-      init() {
-        this.createCanvas();
-        this.generateNetwork();
-        this.animate();
-      }
-
-      createCanvas() {
-        this.canvas = document.createElement('canvas');
-        this.canvas.style.cssText = `
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: -1;
-          opacity: 0.1;
-        `;
-
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        this.ctx = this.canvas.getContext('2d');
-
-        document.body.appendChild(this.canvas);
-
-        // Resize handler
-        window.addEventListener('resize', () => {
-          this.canvas.width = window.innerWidth;
-          this.canvas.height = window.innerHeight;
-          this.generateNetwork();
-        });
-      }
-
-      generateNetwork() {
-        this.nodes = [];
-        this.connections = [];
-
-        // Create nodes
-        for (let i = 0; i < 50; i++) {
-          this.nodes.push({
-            x: Math.random() * this.canvas.width,
-            y: Math.random() * this.canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            pulse: Math.random() * Math.PI * 2
-          });
-        }
-
-        // Create connections
-        for (let i = 0; i < this.nodes.length; i++) {
-          for (let j = i + 1; j < this.nodes.length; j++) {
-            const distance = this.getDistance(this.nodes[i], this.nodes[j]);
-            if (distance < 150) {
-              this.connections.push({
-                from: this.nodes[i],
-                to: this.nodes[j],
-                strength: 1 - (distance / 150)
-              });
-            }
-          }
-        }
-      }
-
-      getDistance(node1, node2) {
-        const dx = node1.x - node2.x;
-        const dy = node1.y - node2.y;
-        return Math.sqrt(dx * dx + dy * dy);
-      }
-
-      animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-        // Update and draw nodes
-        this.nodes.forEach(node => {
-          node.x += node.vx;
-          node.y += node.vy;
-          node.pulse += 0.02;
-
-          // Wrap around edges
-          if (node.x < 0) node.x = this.canvas.width;
-          if (node.x > this.canvas.width) node.x = 0;
-          if (node.y < 0) node.y = this.canvas.height;
-          if (node.y > this.canvas.height) node.y = 0;
-
-          // Draw node
-          const size = 2 + Math.sin(node.pulse) * 1;
-          this.ctx.beginPath();
-          this.ctx.arc(node.x, node.y, size, 0, Math.PI * 2);
-          this.ctx.fillStyle = '#0066ff';
-          this.ctx.fill();
-        });
-
-        // Draw connections
-        this.connections.forEach(conn => {
-          this.ctx.beginPath();
-          this.ctx.moveTo(conn.from.x, conn.from.y);
-          this.ctx.lineTo(conn.to.x, conn.to.y);
-          this.ctx.strokeStyle = `rgba(0, 102, 255, ${conn.strength * 0.3})`;
-          this.ctx.stroke();
-        });
-
-        requestAnimationFrame(() => this.animate());
-      }
-    }
-
-    // Initialize everything when DOM is ready
+    // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      new OrganicLoader();
-      new FluidAnimationEngine();
-      new NaturalMotionController();
-      new ASCIIAnimationEngine();
-      new GlitchEffectsController();
-      new NeuralNetworkViz();
-
-      // Initialize existing systems
       new FormHandler();
-      new AnalyticsTracker();
-      new ScrollAnimations();
-      new PerformanceMonitor();
-      new InteractiveDemo();
       new AnimatedCounters();
-
-      // Add final animation touches
-      setTimeout(() => {
-        document.body.classList.add('loaded');
-      }, 100);
-    });
-
-    // Window resize handler for fluid animations
-    window.addEventListener('resize', () => {
-      if (window.fluidEngine) {
-        window.fluidEngine.renderer.setSize(window.innerWidth, window.innerHeight);
-        window.fluidEngine.camera.aspect = window.innerWidth / window.innerHeight;
-        window.fluidEngine.camera.updateProjectionMatrix();
-      }
     });
   </script>
 </body>
