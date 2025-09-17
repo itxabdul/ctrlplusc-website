@@ -111,7 +111,7 @@
     }
 
     html {
-      scroll-behavior: auto;
+      scroll-behavior: smooth;
       font-size: 16px;
     }
 
@@ -216,22 +216,6 @@
       overflow: hidden;
     }
 
-    .logo::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: var(--gradient-reflection);
-      opacity: 0.5;
-      animation: logo-reflection 4s ease-in-out infinite;
-    }
-
-    @keyframes logo-reflection {
-      0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.3; }
-      50% { transform: rotate(180deg) scale(1.1); opacity: 0.6; }
-    }
 
     .logo::before {
       content: '';
@@ -417,17 +401,6 @@
       overflow: hidden;
     }
 
-    .form-wrapper::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--gradient-reflection);
-      opacity: 0.3;
-      pointer-events: none;
-    }
 
     .form-wrapper::before {
       content: '';
@@ -494,22 +467,6 @@
       overflow: hidden;
     }
 
-    .submit-btn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--gradient-reflection);
-      opacity: 0.4;
-      animation: btn-reflection 3s ease-in-out infinite;
-    }
-
-    @keyframes btn-reflection {
-      0%, 100% { transform: translateX(-100%); opacity: 0.2; }
-      50% { transform: translateX(100%); opacity: 0.6; }
-    }
 
     .submit-btn::before {
       content: '';
@@ -578,22 +535,6 @@
       cursor: pointer;
     }
 
-    .workflow-step::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: var(--gradient-reflection);
-      opacity: 0.2;
-      animation: surface-reflection 6s ease-in-out infinite;
-    }
-
-    @keyframes surface-reflection {
-      0%, 100% { transform: rotate(0deg) scale(0.8); opacity: 0.1; }
-      50% { transform: rotate(180deg) scale(1.2); opacity: 0.3; }
-    }
 
     .workflow-step::before {
       content: '';
@@ -720,35 +661,216 @@
       margin: var(--space-12) 0;
     }
 
-    /* Premium Material Mockup Section */
-    .mockup-section {
+    /* App Interface Mockup Section */
+    .app-mockup-section {
       background: var(--gradient-platinum);
       margin: var(--space-12) 0;
       padding: var(--space-12) 0;
       border-radius: var(--radius-3xl);
       position: relative;
       overflow: hidden;
-      box-shadow: var(--shadow-large), var(--glow-white);
+      box-shadow: var(--shadow-large);
     }
 
-    .mockup-section::after {
-      content: '';
+    .app-interface {
+      max-width: 1000px;
+      margin: var(--space-8) auto 0;
+      padding: 0 var(--space-4);
+    }
+
+    .app-window {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-dramatic);
+      overflow: hidden;
+      border: 1px solid var(--mercury);
+    }
+
+    .app-header {
+      background: var(--gradient-chrome);
+      padding: var(--space-3) var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      border-bottom: 1px solid var(--mercury);
+    }
+
+    .window-controls {
+      display: flex;
+      gap: var(--space-2);
+    }
+
+    .control {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .control.close { background: #ff5f57; }
+    .control.minimize { background: #ffbd2e; }
+    .control.maximize { background: #28ca42; }
+
+    .app-title {
+      font-weight: 600;
+      color: var(--obsidian);
+      font-size: 0.9rem;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin-left: auto;
+      position: relative;
+      max-width: 300px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--mercury);
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      background: var(--snow);
+    }
+
+    .search-icon {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        linear-gradient(45deg, transparent 40%, var(--reflection-light) 50%, transparent 60%),
-        linear-gradient(135deg, transparent 40%, var(--reflection-medium) 50%, transparent 60%);
-      opacity: 0.6;
-      animation: section-reflection 8s ease-in-out infinite;
+      right: var(--space-2);
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
     }
 
-    @keyframes section-reflection {
-      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
-      50% { transform: scale(1.02) rotate(2deg); opacity: 0.8; }
+    .app-body {
+      display: flex;
+      min-height: 400px;
     }
+
+    .clipboard-items {
+      flex: 1;
+      padding: var(--space-4);
+      background: var(--snow);
+    }
+
+    .clipboard-item {
+      background: var(--white);
+      border: 1px solid var(--mercury);
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+      margin-bottom: var(--space-3);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .clipboard-item:hover {
+      border-color: var(--chrome);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .clipboard-item.active {
+      border-color: var(--steel);
+      background: var(--pearl);
+    }
+
+    .item-type {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--steel);
+      margin-bottom: var(--space-1);
+    }
+
+    .item-preview {
+      font-size: 0.85rem;
+      color: var(--carbon);
+      line-height: 1.4;
+      margin-bottom: var(--space-2);
+      max-height: 60px;
+      overflow: hidden;
+      font-family: 'Monaco', 'Menlo', monospace;
+    }
+
+    .image-preview {
+      font-family: var(--font-family);
+    }
+
+    .image-placeholder {
+      background: var(--chrome);
+      padding: var(--space-2);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      margin-bottom: var(--space-1);
+    }
+
+    .ocr-text {
+      font-style: italic;
+      color: var(--steel);
+    }
+
+    .item-meta {
+      font-size: 0.7rem;
+      color: var(--silver);
+    }
+
+    .app-sidebar {
+      width: 200px;
+      background: var(--chrome);
+      padding: var(--space-4);
+      border-left: 1px solid var(--mercury);
+    }
+
+    .stats {
+      margin-bottom: var(--space-6);
+    }
+
+    .stat-item {
+      text-align: center;
+      margin-bottom: var(--space-3);
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--obsidian);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--steel);
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .action-btn {
+      padding: var(--space-2) var(--space-3);
+      border: 1px solid var(--mercury);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      color: var(--carbon);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn:hover {
+      background: var(--pearl);
+      border-color: var(--chrome);
+    }
+
+    .action-btn.primary {
+      background: var(--gradient-aluminum);
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .action-btn.primary:hover {
+      background: var(--gradient-chrome);
+      color: var(--obsidian);
+    }
+
 
     .mockup-section::before {
       content: '';
@@ -812,29 +934,6 @@
       overflow: hidden;
     }
 
-    .mockup-card::after {
-      content: '';
-      position: absolute;
-      top: -100%;
-      left: -100%;
-      width: 300%;
-      height: 300%;
-      background: conic-gradient(
-        from 0deg,
-        transparent,
-        var(--reflection-light),
-        transparent,
-        var(--reflection-medium),
-        transparent
-      );
-      opacity: 0.3;
-      animation: card-reflection 10s linear infinite;
-    }
-
-    @keyframes card-reflection {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
 
     .mockup-card::before {
       content: '';
@@ -946,22 +1045,6 @@
       cursor: pointer;
     }
 
-    .feature-card::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: var(--gradient-reflection);
-      opacity: 0.2;
-      animation: feature-reflection 8s ease-in-out infinite;
-    }
-
-    @keyframes feature-reflection {
-      0%, 100% { transform: rotate(0deg) scale(0.9); opacity: 0.1; }
-      50% { transform: rotate(180deg) scale(1.1); opacity: 0.3; }
-    }
 
     .feature-card::before {
       content: '';
@@ -1366,44 +1449,95 @@
       </div>
     </section>
 
-    <!-- White Mockup Section -->
-    <section class="mockup-section fade-in">
+    <!-- App Interface Mockup Section -->
+    <section class="app-mockup-section fade-in">
       <div class="mockup-content">
-        <h2 class="mockup-title">Experience the Revolution</h2>
+        <h2 class="mockup-title">See Ctrl+C in Action</h2>
         <p class="mockup-subtitle">
-          Witness how Ctrl+C transforms the mundane into the magical—where every interaction
-          feels intuitive, every function serves a purpose, and every moment sparks productivity.
+          Experience the actual interface that's transforming how people work with their clipboard
         </p>
 
-        <div class="mockup-grid">
-          <div class="mockup-card">
-            <div class="mockup-icon">🎯</div>
-            <h3 class="mockup-card-title">Precision Capture</h3>
-            <p class="mockup-card-description">
-              <span class="highlight-mockup">Every pixel tells a story</span>.
-              Our advanced algorithms understand context, extract meaning,
-              and preserve intention with surgical precision.
-            </p>
-          </div>
+        <div class="app-interface">
+          <div class="app-window">
+            <div class="app-header">
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+              <div class="app-title">Ctrl+C - Clipboard Manager</div>
+              <div class="search-bar">
+                <input type="text" placeholder="Search clipboard history..." readonly>
+                <span class="search-icon">🔍</span>
+              </div>
+            </div>
 
-          <div class="mockup-card">
-            <div class="mockup-icon">✨</div>
-            <h3 class="mockup-card-title">Intelligent Organization</h3>
-            <p class="mockup-card-description">
-              <span class="highlight-mockup">Chaos becomes clarity</span>.
-              Watch as your clipboard transforms into a beautifully
-              organized extension of your creative consciousness.
-            </p>
-          </div>
+            <div class="app-body">
+              <div class="clipboard-items">
+                <div class="clipboard-item active">
+                  <div class="item-type">📝 Text</div>
+                  <div class="item-preview">const handleSubmit = async (formData) => {
+  try {
+    const response = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    return response.json();
+  } catch (error) {
+    console.error('Submission failed:', error);
+  }
+};</div>
+                  <div class="item-meta">2 minutes ago • 324 characters</div>
+                </div>
 
-          <div class="mockup-card">
-            <div class="mockup-icon">🚀</div>
-            <h3 class="mockup-card-title">Lightning Workflow</h3>
-            <p class="mockup-card-description">
-              <span class="highlight-mockup">Speed meets elegance</span>.
-              From capture to paste in milliseconds—because
-              your inspiration shouldn't wait for technology.
-            </p>
+                <div class="clipboard-item">
+                  <div class="item-type">🖼️ Image</div>
+                  <div class="item-preview image-preview">
+                    <div class="image-placeholder">Screenshot_2024-01-15.png</div>
+                    <div class="ocr-text">OCR: "Login to your dashboard"</div>
+                  </div>
+                  <div class="item-meta">5 minutes ago • 1.2 MB</div>
+                </div>
+
+                <div class="clipboard-item">
+                  <div class="item-type">🔗 URL</div>
+                  <div class="item-preview">https://github.com/user/awesome-project/pull/42</div>
+                  <div class="item-meta">12 minutes ago • GitHub Pull Request</div>
+                </div>
+
+                <div class="clipboard-item">
+                  <div class="item-type">📄 File</div>
+                  <div class="item-preview">📎 presentation-final-v2.pptx</div>
+                  <div class="item-meta">1 hour ago • 15.3 MB</div>
+                </div>
+
+                <div class="clipboard-item">
+                  <div class="item-type">📝 Text</div>
+                  <div class="item-preview">john.doe@company.com</div>
+                  <div class="item-meta">2 hours ago • Email address</div>
+                </div>
+              </div>
+
+              <div class="app-sidebar">
+                <div class="stats">
+                  <div class="stat-item">
+                    <div class="stat-number">1,247</div>
+                    <div class="stat-label">Items Saved</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number">89%</div>
+                    <div class="stat-label">Time Saved</div>
+                  </div>
+                </div>
+
+                <div class="quick-actions">
+                  <button class="action-btn primary">📋 Paste Selected</button>
+                  <button class="action-btn">🗑️ Clear History</button>
+                  <button class="action-btn">⚙️ Settings</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1472,52 +1606,6 @@
     // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger);
 
-    // Create snap points for sections
-    const snapPoints = [
-      0,
-      window.innerHeight,
-      window.innerHeight * 2,
-      window.innerHeight * 3,
-      window.innerHeight * 4
-    ];
-
-    let isScrolling = false;
-    let currentSnap = 0;
-
-    // Smooth snap scrolling
-    function snapToSection(index) {
-      if (isScrolling) return;
-      isScrolling = true;
-
-      gsap.to(window, {
-        duration: 0.8,
-        scrollTo: snapPoints[index],
-        ease: "power2.inOut",
-        onComplete: () => {
-          isScrolling = false;
-        }
-      });
-    }
-
-    // Wheel event handler for precise control
-    let scrollTimeout;
-    window.addEventListener('wheel', (e) => {
-      e.preventDefault();
-
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const delta = e.deltaY;
-
-        if (delta > 0 && currentSnap < snapPoints.length - 1) {
-          currentSnap++;
-          snapToSection(currentSnap);
-        } else if (delta < 0 && currentSnap > 0) {
-          currentSnap--;
-          snapToSection(currentSnap);
-        }
-      }, 50);
-    }, { passive: false });
-
     // Advanced material interactions
     class MetallicInteractions {
       constructor() {
@@ -1530,69 +1618,22 @@
 
         // Magnetic metallic elements
         this.setupMagneticElements();
-
-        // Shimmer effects
-        this.setupShimmerEffects();
-
-        // Premium glow effects
-        this.setupPremiumGlow();
       }
 
       createMetallicCursor() {
-        const cursor = document.createElement('div');
-        cursor.className = 'metallic-cursor';
-        document.body.appendChild(cursor);
+        // Simplified cursor - only on desktop
+        if (window.innerWidth > 768) {
+          const cursor = document.createElement('div');
+          cursor.className = 'metallic-cursor';
+          document.body.appendChild(cursor);
 
-        const cursorCore = document.createElement('div');
-        cursorCore.className = 'cursor-core';
-        document.body.appendChild(cursorCore);
-
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        let coreX = 0, coreY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-        });
-
-        function updateCursor() {
-          cursorX += (mouseX - cursorX) * 0.08;
-          cursorY += (mouseY - cursorY) * 0.08;
-          coreX += (mouseX - coreX) * 0.4;
-          coreY += (mouseY - coreY) * 0.4;
-
-          cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
-          cursorCore.style.transform = `translate3d(${coreX}px, ${coreY}px, 0)`;
-
-          requestAnimationFrame(updateCursor);
+          document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+          });
         }
-        updateCursor();
       }
 
-      setupShimmerEffects() {
-        const materialElements = document.querySelectorAll('.feature-icon, .mockup-icon, .step-icon');
-
-        materialElements.forEach(element => {
-          element.addEventListener('mouseenter', () => {
-            element.classList.add('material-shimmer');
-          });
-
-          element.addEventListener('mouseleave', () => {
-            setTimeout(() => {
-              element.classList.remove('material-shimmer');
-            }, 1200);
-          });
-        });
-      }
-
-      setupPremiumGlow() {
-        const premiumElements = document.querySelectorAll('.feature-card, .mockup-card, .workflow-step');
-
-        premiumElements.forEach(element => {
-          element.classList.add('premium-glow');
-        });
-      }
 
       setupMagneticElements() {
         const magneticElements = document.querySelectorAll('.submit-btn, .header-badge, .hero-badge, .proof-badge');
@@ -1920,34 +1961,20 @@
       alert('Privacy Policy:\n\nWe collect your email address solely to notify you when Ctrl+C becomes available. We never share your email with third parties or use it for marketing beyond product updates.\n\nCtrl+C itself processes all clipboard data locally on your device. We never have access to your clipboard content, ensuring complete privacy.\n\nFor questions, contact us at privacy@ctrlc.app');
     }
 
-    // Add material cursor styles
+    // Add simplified cursor styles
     const cursorStyles = document.createElement('style');
     cursorStyles.textContent = `
       .metallic-cursor {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 24px;
-        height: 24px;
-        background: radial-gradient(circle, var(--chrome) 0%, var(--silver) 100%);
+        width: 20px;
+        height: 20px;
+        background: var(--chrome);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
         mix-blend-mode: difference;
-        box-shadow: var(--glow-white);
-      }
-
-      .cursor-core {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 6px;
-        height: 6px;
-        background: var(--white);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 10000;
-        box-shadow: 0 0 10px var(--chrome);
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease;
       }
 
       body {
@@ -1966,58 +1993,7 @@
         background: var(--gradient-chrome) !important;
       }
 
-      /* Material shimmer animation */
-      @keyframes material-shimmer {
-        0% { background-position: -200% 0; }
-        100% { background-position: 200% 0; }
-      }
 
-      .material-shimmer {
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--reflection-light),
-          transparent
-        );
-        background-size: 200% 100%;
-        animation: material-shimmer 3s infinite;
-      }
-
-      /* Premium material glow effects */
-      .premium-glow {
-        position: relative;
-      }
-
-      .premium-glow::before {
-        content: '';
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        background: conic-gradient(
-          from 0deg,
-          var(--white),
-          var(--chrome),
-          var(--silver),
-          var(--white)
-        );
-        border-radius: inherit;
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
-      .premium-glow:hover::before {
-        opacity: 0.8;
-        animation: material-rotate-glow 3s linear infinite;
-      }
-
-      @keyframes material-rotate-glow {
-        0% { transform: rotate(0deg) scale(1); }
-        50% { transform: rotate(180deg) scale(1.02); }
-        100% { transform: rotate(360deg) scale(1); }
-      }
 
       @media (max-width: 768px) {
         .custom-cursor, .cursor-dot {
@@ -2041,19 +2017,6 @@
       new AnimatedCounters();
       new ScrollAnimations();
       new MetallicInteractions();
-
-      // Add material finish classes
-      document.querySelectorAll('.feature-card, .mockup-card, .workflow-step').forEach(el => {
-        el.style.willChange = 'transform, box-shadow';
-      });
-
-      // Update snap points on resize
-      window.addEventListener('resize', () => {
-        snapPoints[1] = window.innerHeight;
-        snapPoints[2] = window.innerHeight * 2;
-        snapPoints[3] = window.innerHeight * 3;
-        snapPoints[4] = window.innerHeight * 4;
-      });
     });
   </script>
 </body>
