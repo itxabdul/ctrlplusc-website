@@ -3,7 +3,10 @@
     "allow": [
       "WebFetch(domain:vercel.com)",
       "WebFetch(domain:ui.shadcn.com)",
-      "WebFetch(domain:tailwindui.com)"
+      "WebFetch(domain:tailwindui.com)",
+      "Bash(curl:*)",
+      "Read(//c/Users/itxab/Downloads/**)",
+      "WebFetch(domain:ctrlplusc.com)"
     ],
     "deny": [],
     "ask": []

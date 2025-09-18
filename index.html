@@ -1885,6 +1885,115 @@
       color: var(--accent);
     }
 
+    /* Footer */
+    .site-footer {
+      background: linear-gradient(135deg, var(--obsidian) 0%, var(--carbon) 100%);
+      color: var(--mercury);
+      margin-top: clamp(80px, 8vw, 120px);
+      position: relative;
+    }
+
+    .site-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--chrome), transparent);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: clamp(40px, 6vw, 80px);
+      padding: clamp(60px, 8vw, 80px) 0 clamp(40px, 5vw, 60px);
+      align-items: start;
+    }
+
+    .footer-brand {
+      max-width: 400px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .footer-logo .logo {
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .footer-logo .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-tagline {
+      font-size: clamp(14px, 1.2vw, 16px);
+      color: var(--silver);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: clamp(40px, 5vw, 60px);
+    }
+
+    .link-group h4 {
+      font-size: clamp(14px, 1.1vw, 16px);
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .link-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .link-group a {
+      font-size: clamp(13px, 1vw, 14px);
+      color: var(--silver);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      line-height: 1.4;
+    }
+
+    .link-group a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: clamp(24px, 3vw, 32px) 0;
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      font-size: clamp(12px, 1vw, 13px);
+      color: var(--silver);
+      margin: 0;
+    }
+
+    .footer-bottom a {
+      color: var(--chrome);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--white);
+    }
+
     /* Responsive adjustments */
     @media (max-width: 980px) {
       .section-grid,
@@ -1901,6 +2010,21 @@
 
       .features-grid {
         grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: clamp(32px, 5vw, 48px);
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+        gap: clamp(24px, 4vw, 40px);
+      }
+
+      .footer-brand {
+        max-width: 100%;
       }
     }
 
@@ -2388,6 +2512,38 @@
         </div>
       </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="logo">C+</div>
+            <div class="logo-text">Ctrl+C</div>
+          </div>
+          <p class="footer-tagline">The intelligent clipboard that never forgets</p>
+        </div>
+
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#security">Privacy</a>
+            <a href="#proof">Testimonials</a>
+          </div>
+          <div class="link-group">
+            <h4>Support</h4>
+            <a href="mailto:hello@ctrlc.com">Contact</a>
+            <a href="#help">Help Center</a>
+            <a href="#changelog">Changelog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Ctrl+C. All rights reserved. • <a href="#privacy">Privacy Policy</a> • <a href="#terms">Terms</a></p>
+      </div>
+    </footer>
   </div>
 
   <script>
