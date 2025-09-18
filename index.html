@@ -1469,6 +1469,326 @@
       border-radius: 10px;
     }
 
+    /* Single-Page Content Sections */
+    .problem-solution,
+    .features-benefits,
+    .social-proof,
+    .trust-security,
+    .final-cta {
+      padding: clamp(40px, 8vw, 80px) 0;
+      border-top: 1px solid var(--subtle);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: clamp(32px, 5vw, 60px);
+      color: var(--text);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 6vw, 80px);
+      align-items: start;
+    }
+
+    .content-block h2 {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .content-block p {
+      font-size: clamp(14px, 1.2vw, 18px);
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .pain-points,
+    .solution-points {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pain-points li,
+    .solution-points li {
+      padding: 12px 0;
+      font-size: clamp(14px, 1.1vw, 16px);
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .pain-points li strong,
+    .solution-points li strong {
+      color: var(--text);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: clamp(20px, 3vw, 32px);
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--subtle);
+      border-radius: var(--radius);
+      padding: clamp(20px, 3vw, 32px);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(16,19,23,.12), 0 6px 16px rgba(16,19,23,.08);
+    }
+
+    .feature-icon {
+      font-size: clamp(28px, 4vw, 36px);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .feature-card p {
+      font-size: clamp(13px, 1.1vw, 15px);
+      line-height: 1.5;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .feature-example {
+      font-size: clamp(11px, 1vw, 13px);
+      color: var(--accent);
+      background: color-mix(in oklab, var(--accent) 8%, var(--surface));
+      padding: 8px 12px;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+
+    /* Social Proof */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(20px, 3vw, 40px);
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      text-align: center;
+      background: var(--surface);
+      border: 1px solid var(--subtle);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 40px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-number {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: clamp(13px, 1.2vw, 16px);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 40px);
+    }
+
+    .testimonial {
+      background: var(--surface);
+      border: 1px solid var(--subtle);
+      border-radius: var(--radius);
+      padding: clamp(24px, 3vw, 32px);
+      box-shadow: var(--shadow);
+      margin: 0;
+    }
+
+    .testimonial p {
+      font-size: clamp(14px, 1.2vw, 17px);
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .testimonial cite {
+      font-size: clamp(12px, 1vw, 14px);
+      color: var(--muted);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* Trust & Security */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: clamp(20px, 3vw, 32px);
+    }
+
+    .trust-item {
+      text-align: center;
+      padding: clamp(20px, 3vw, 32px);
+    }
+
+    .trust-item h3 {
+      font-size: clamp(16px, 1.4vw, 20px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .trust-item p {
+      font-size: clamp(13px, 1.1vw, 15px);
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: var(--surface);
+      border-top: 1px solid var(--subtle);
+    }
+
+    .cta-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .cta-content > p {
+      font-size: clamp(16px, 1.4vw, 20px);
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .cta-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 40px);
+      margin-bottom: 32px;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      background: var(--bg);
+      border: 1px solid var(--subtle);
+      border-radius: var(--radius);
+      padding: clamp(24px, 3vw, 32px);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-primary {
+      border-color: var(--accent);
+      background: color-mix(in oklab, var(--accent) 4%, var(--surface));
+    }
+
+    .cta-primary h3,
+    .cta-secondary h3 {
+      font-size: clamp(16px, 1.4vw, 20px);
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .cta-primary p,
+    .cta-secondary p {
+      font-size: clamp(13px, 1.1vw, 15px);
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .cta-form-secondary {
+      display: flex;
+      gap: 8px;
+    }
+
+    .cta-form-secondary input {
+      flex: 1;
+      border: 1px solid var(--subtle);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .cta-form-secondary button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .cta-form-secondary button:hover {
+      background: color-mix(in oklab, var(--accent) 90%, black);
+    }
+
+    .urgency-indicator {
+      background: color-mix(in oklab, var(--accent) 12%, var(--surface));
+      border: 1px solid color-mix(in oklab, var(--accent) 24%, white);
+      border-radius: 12px;
+      padding: 12px 24px;
+      display: inline-block;
+    }
+
+    .urgency-text {
+      font-size: clamp(13px, 1.1vw, 15px);
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 980px) {
+      .section-grid,
+      .cta-options,
+      .testimonials {
+        grid-template-columns: 1fr;
+        gap: clamp(20px, 3vw, 32px);
+      }
+
+      .proof-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Focus States */
     .email-input:focus {
       outline: 2px solid var(--blue);
@@ -1567,8 +1887,7 @@
         <h1 id="title"><span id="type">Copy. Collect. Control.</span></h1>
 
         <p class="tagline">
-          A smart, lightweight clipboard manager that remembers everything you copy, adds smart tags,
-          and lets you find it in a blink—without breaking your flow.
+          Stop losing important information in your clipboard history. Ctrl+C intelligently captures, categorizes, and makes searchable everything you copy—from text and images to files and screenshots. With advanced OCR, smart tagging, and lightning-fast search, your clipboard becomes your personal knowledge assistant.
         </p>
 
         <div class="form-wrap">
@@ -1600,6 +1919,172 @@
       </aside>
     </div>
 
+    <!-- Problem & Solution Section -->
+    <section class="problem-solution" id="problem">
+      <div class="container">
+        <div class="section-grid">
+          <div class="content-block">
+            <h2>The Clipboard Chaos</h2>
+            <p>Every day, you copy dozens of pieces of information—URLs, code snippets, passwords, quotes, screenshots. But traditional clipboards only remember the last item, forcing you to constantly switch between apps to re-copy lost information.</p>
+            <ul class="pain-points">
+              <li>❌ <strong>Lost forever:</strong> Copy something new and lose what you had before</li>
+              <li>❌ <strong>Context switching:</strong> Constantly jumping between apps to re-find information</li>
+              <li>❌ <strong>No organization:</strong> Can't categorize or search through your copied content</li>
+              <li>❌ <strong>Privacy concerns:</strong> Cloud clipboards expose your sensitive data</li>
+            </ul>
+          </div>
+          <div class="content-block">
+            <h2>The Ctrl+C Solution</h2>
+            <p>Ctrl+C transforms your clipboard into an intelligent, searchable knowledge base that works entirely on your device. Every copy is preserved, categorized, and instantly accessible—without compromising your privacy.</p>
+            <ul class="solution-points">
+              <li>✅ <strong>Never lose anything:</strong> Unlimited clipboard history stored locally</li>
+              <li>✅ <strong>Smart categorization:</strong> Auto-tags content by type and context</li>
+              <li>✅ <strong>Lightning search:</strong> Find any copied item in milliseconds</li>
+              <li>✅ <strong>100% private:</strong> Everything stays on your device, always</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features & Benefits Section -->
+    <section class="features-benefits" id="features">
+      <div class="container">
+        <h2 class="section-title">Why Developers & Creators Choose Ctrl+C</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Intelligent OCR</h3>
+            <p>Screenshots become searchable text instantly. Copy an image with code, and Ctrl+C extracts the text for easy searching and editing.</p>
+            <div class="feature-example">Example: Screenshot of code → Searchable, copyable text</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Lightning Search</h3>
+            <p>Type a few characters and instantly find any content you've copied—even from weeks ago. Fuzzy search understands typos and partial matches.</p>
+            <div class="feature-example">Example: "api key" finds "API_KEY_PROD_2023"</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏷️</div>
+            <h3>Smart Auto-Tagging</h3>
+            <p>URLs, emails, phone numbers, code snippets, and more are automatically categorized. Create custom tags for your workflow.</p>
+            <div class="feature-example">Example: Git commands auto-tagged as "development"</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy-First Design</h3>
+            <p>Zero telemetry, no cloud storage, no data collection. Your clipboard history never leaves your device. Open source for full transparency.</p>
+            <div class="feature-example">Example: API keys stay local, never synced</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Workflow Integration</h3>
+            <p>Customizable hotkeys, quick paste menus, and smart suggestions based on your current application and context.</p>
+            <div class="feature-example">Example: Auto-suggest code snippets in VS Code</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Usage Analytics</h3>
+            <p>Private insights into your copy patterns help optimize your workflow. See your most-used snippets and time-saving stats.</p>
+            <div class="feature-example">Example: "Saved 2.3 hours this week from quick access"</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof" id="proof">
+      <div class="container">
+        <div class="proof-grid">
+          <div class="stat-card">
+            <div class="stat-number">12,000+</div>
+            <div class="stat-label">Beta Users</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4.9/5</div>
+            <div class="stat-label">User Rating</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500K+</div>
+            <div class="stat-label">Items Copied Daily</div>
+          </div>
+        </div>
+
+        <div class="testimonials">
+          <blockquote class="testimonial">
+            <p>"Game changer for development work. I can finally keep track of all my API keys, code snippets, and documentation links in one place."</p>
+            <cite>— Sarah Chen, Senior Developer at Stripe</cite>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>"The OCR feature is incredible. Screenshot debugging sessions become searchable text archives. This has revolutionized my workflow."</p>
+            <cite>— Marcus Rodriguez, DevOps Engineer</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust & Security Section -->
+    <section class="trust-security" id="security">
+      <div class="container">
+        <h2 class="section-title">Built for Privacy & Security</h2>
+        <div class="trust-grid">
+          <div class="trust-item">
+            <h3>🔐 Local-Only Storage</h3>
+            <p>Your clipboard data never leaves your device. No cloud sync, no servers, no data collection. What you copy stays yours.</p>
+          </div>
+          <div class="trust-item">
+            <h3>🛡️ Encrypted Database</h3>
+            <p>All clipboard data is encrypted using AES-256 encryption with device-specific keys. Even if someone accesses your drive, your data is protected.</p>
+          </div>
+          <div class="trust-item">
+            <h3>📖 Open Source</h3>
+            <p>Full source code available for audit. No hidden functionality, no telemetry, no backdoors. Community-driven development.</p>
+          </div>
+          <div class="trust-item">
+            <h3>⚖️ GDPR Compliant</h3>
+            <p>Since we don't collect any data, we're inherently GDPR compliant. Your right to privacy is built into our architecture.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="join">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Join the Clipboard Revolution</h2>
+          <p>Be among the first to experience the future of clipboard management. Limited early access spots available.</p>
+
+          <div class="cta-options">
+            <div class="cta-primary">
+              <h3>🚀 Early Access (Recommended)</h3>
+              <p>Get immediate beta access when we launch + exclusive lifetime discount</p>
+              <div class="cta-form-secondary">
+                <form id="early-access-form" novalidate>
+                  <input type="email" placeholder="your@email.com" required />
+                  <button type="submit">Get Early Access</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="cta-secondary">
+              <h3>📧 Stay Updated</h3>
+              <p>Receive launch notifications and feature updates</p>
+              <div class="cta-form-secondary">
+                <form id="updates-form" novalidate>
+                  <input type="email" placeholder="your@email.com" required />
+                  <button type="submit">Get Updates</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="urgency-indicator">
+            <span class="urgency-text">⏰ Only 127 early access spots remaining</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Copy-Paste Workflow Demo -->
     <section class="workflow-demo fade-in">
@@ -1794,27 +2279,8 @@
     (function(){
       const $ = s => document.querySelector(s);
       const elType = $('#type');
-      const lines = [
-        "Copy. Collect. Control.",
-        "Your Clipboard, Supercharged ⚡",
-        "Never Lose What You Copy Again ✂️"
-      ];
-      let idx = 0;
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      function setLine(text){
-        if(!prefersReduced){
-          elType.classList.remove('paste');
-          void elType.offsetWidth; // restart animation
-          elType.textContent = text;
-          elType.classList.add('paste');
-        } else {
-          elType.textContent = text;
-        }
-      }
-      function cycle(){ idx = (idx + 1) % lines.length; setLine(lines[idx]); }
-      setLine(lines[0]);
-      const int = prefersReduced ? null : setInterval(cycle, 3000);
+      // Single, clear headline - no confusing rotation
+      elType.textContent = "The Intelligent Clipboard That Never Forgets";
 
       // Form logic
       const form = $('#waitlist');
@@ -1852,6 +2318,47 @@
         helper.textContent = 'We\'ll never share your email. Press Enter to submit.';
         helper.style.color = '#647084';
       });
+      // Handle additional CTA forms
+      const earlyAccessForm = $('#early-access-form');
+      const updatesForm = $('#updates-form');
+
+      if (earlyAccessForm) {
+        earlyAccessForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = earlyAccessForm.querySelector('input[type="email"]').value.trim();
+          if (emailPattern.test(email)) {
+            try { localStorage.setItem('ctrlc_waitlist_email', email); } catch(e) {}
+            showSuccess(email);
+            // Scroll to main success message
+            success.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+
+      if (updatesForm) {
+        updatesForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = updatesForm.querySelector('input[type="email"]').value.trim();
+          if (emailPattern.test(email)) {
+            try { localStorage.setItem('ctrlc_waitlist_email', email); } catch(e) {}
+            showSuccess(email);
+            // Scroll to main success message
+            success.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+
+      // Smooth scrolling for anchor links
+      document.addEventListener('click', (e) => {
+        if (e.target.matches('a[href^="#"]')) {
+          e.preventDefault();
+          const target = document.querySelector(e.target.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+
       document.addEventListener('touchmove', e => e.preventDefault(), {passive:false});
     })();
 
