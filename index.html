@@ -232,6 +232,15 @@
       transform: translateY(-2px);
     }
 
+    .logo-image {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+      border-radius: 8px;
+      background: transparent;
+    }
+
     .logo {
       width: 48px;
       height: 48px;
@@ -1905,14 +1914,22 @@
 
     .footer-content {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr 1fr;
       gap: clamp(40px, 6vw, 80px);
       padding: clamp(60px, 8vw, 80px) 0 clamp(40px, 5vw, 60px);
-      align-items: start;
+      align-items: center;
     }
 
     .footer-brand {
       max-width: 400px;
+    }
+
+    .footer-brand .footer-tagline {
+      font-size: clamp(16px, 1.4vw, 20px);
+      color: var(--silver);
+      line-height: 1.5;
+      margin: 0;
+      text-align: left;
     }
 
     .footer-logo {
@@ -1945,6 +1962,7 @@
     .footer-links {
       display: flex;
       gap: clamp(40px, 5vw, 60px);
+      justify-content: flex-end;
     }
 
     .link-group h4 {
@@ -2094,8 +2112,7 @@
     <!-- Header -->
     <header class="header">
       <div class="logo-container">
-        <div class="logo">C+</div>
-        <div class="logo-text">Ctrl+C</div>
+        <img src="logo.png" alt="Ctrl+C Logo" class="logo-image" />
       </div>
       <span class="ribbon">Windows • Early Access</span>
     </header>
@@ -2517,10 +2534,6 @@
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-brand">
-          <div class="footer-logo">
-            <div class="logo">C+</div>
-            <div class="logo-text">Ctrl+C</div>
-          </div>
           <p class="footer-tagline">The intelligent clipboard that never forgets</p>
         </div>
 
